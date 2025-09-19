@@ -4,7 +4,7 @@ import { twMerge } from 'tailwind-merge';
 import Button from './Button.astro';
 import { Icon } from 'astro-icon/components';
 
-const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props;
+const { items = [], defaultIcon = '', classes = {} } = Astro.props;
 
 const {
   container: containerClass = '',
@@ -16,50 +16,91 @@ const {
 } = classes;
 ---
 
-{
-  items && items.length > 0 && (
+<div
+  class={twMerge(
+    "flex flex-col space-y-2 w-full", // <- aquí controlas la separación
+    containerClass
+  )}
+  data-accordion-group
+>
+  {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }) => (
     <div
       class={twMerge(
-        `grid mx-auto gap-8 md:gap-y-12 ${
-          columns === 4
-            ? 'lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2'
-            : columns === 3
-              ? 'lg:grid-cols-3 sm:grid-cols-2'
-              : columns === 2
-                ? 'sm:grid-cols-2 '
-                : ''
-        }`,
-        containerClass
+        "rounded-xl shadow-sm bg-white dark:bg-gray-900 overflow-hidden", // cada FAQ con borde redondeado
+        panelClass,
+        itemClasses?.panel
       )}
+      data-accordion
     >
-      {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }) => (
-        <div class="intersect-once motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
-          <div class={twMerge('flex flex-row max-w-md', panelClass, itemClasses?.panel)}>
-            <div class="flex justify-center">
-              {(icon || defaultIcon) && (
-                <Icon
-                  name={icon || defaultIcon}
-                  class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
-                />
-              )}
-            </div>
-            <div class="mt-0.5">
-              {title && <h3 class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>}
-              {description && (
-                <p
-                  class={twMerge(`${title ? 'mt-3' : ''} text-muted`, descriptionClass, itemClasses?.description)}
-                  set:html={description}
-                />
-              )}
-              {callToAction && (
-                <div class={twMerge(`${title || description ? 'mt-3' : ''}`, actionClass, itemClasses?.actionClass)}>
-                  <Button variant="link" {...callToAction} />
-                </div>
-              )}
-            </div>
-          </div>
+      <!-- Botón -->
+      <button
+        class="w-full flex items-center justify-between px-4 py-3 font-semibold text-left cursor-pointer transition-colors hover:text-primary"
+        data-accordion-btn
+      >
+        <div class="flex items-center">
+          
+          <span class={twMerge("text-lg", titleClass, itemClasses?.title)}>{title}</span>
         </div>
-      ))}
+        <Icon
+          name="tabler:chevron-up"
+          class="w-5 h-5 transition-transform duration-300"
+          data-accordion-icon
+        />
+      </button>
+
+      <!-- Contenido colapsable -->
+      <div
+        class="grid transition-all duration-300 ease-in-out max-h-0 overflow-hidden px-4"
+        data-accordion-content
+      >
+        <div class="pb-4 pt-2 text-muted">
+          <p set:html={description} />
+          {callToAction && (
+            <div class={twMerge("mt-3", actionClass, itemClasses?.actionClass)}>
+              <Button variant="link" {...callToAction} />
+            </div>
+          )}
+        </div>
+      </div>
     </div>
-  )
-}
+  ))}
+</div>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const groups = document.querySelectorAll("[data-accordion-group]");
+
+    groups.forEach((group) => {
+      const items = group.querySelectorAll("[data-accordion]");
+
+      items.forEach((item) => {
+        const btn = item.querySelector<HTMLButtonElement>("[data-accordion-btn]");
+        const content = item.querySelector<HTMLElement>("[data-accordion-content]");
+        const icon = item.querySelector<HTMLElement>("[data-accordion-icon]");
+
+        if (btn && content && icon) {
+          btn.addEventListener("click", () => {
+            const isOpen = item.classList.contains("open");
+
+            // cerrar todos
+            items.forEach((el) => {
+              el.classList.remove("open");
+              const elContent = el.querySelector<HTMLElement>("[data-accordion-content]");
+              const elIcon = el.querySelector<HTMLElement>("[data-accordion-icon]");
+              if (elContent) elContent.style.maxHeight = "";
+              if (elIcon) elIcon.style.transform = "rotate(0deg)";
+            });
+
+            // abrir clickeado
+            if (!isOpen) {
+              item.classList.add("open");
+              content.style.maxHeight = `${content.scrollHeight}px`;
+              icon.style.transform = "rotate(180deg)";
+            }
+          });
+        }
+      });
+    });
+  });
+</script>

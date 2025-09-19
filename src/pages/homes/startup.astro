@@ -2,11 +2,11 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+
 
 import Features2 from '~/components/widgets/Features2.astro';
 import Features from '~/components/widgets/Features.astro';
-import Stats from '~/components/widgets/Stats.astro';
+import Testimonials from '~/components/widgets/Testimonials.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Brands from '~/components/widgets/Brands.astro';
@@ -19,34 +19,33 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
+  <!-- Hero Widget ******* -->
 
-  <Hero
-    tagline="Startup Web Demo"
+<Hero
+    tagline="Soluciones contables y tributarias confiables"
     actions={[
       {
         variant: 'primary',
         target: '_blank',
-        text: 'Get templates',
-        href: 'https://github.com/arthelokyo/astrowind',
+        text: 'Nuestros Servicios',
+        href: '#services',
         icon: 'tabler:download',
       },
-      { text: 'Learn more', href: '#features' },
+      { text: 'Contáctanos', href: '#contact' },
     ]}
   >
     <Fragment slot="title">
-      Improve <span class="hidden sm:inline">the online presence of</span> your <span
-        class="text-accent dark:text-white">Startup</span
-      > with Astrowind templates
+      Confía en <span class="hidden sm:inline">RLH para la gestión</span> de tu <span
+        class="text-accent dark:text-white">contabilidad</span> y <span class="text-accent dark:text-white">tributación</span>
     </Fragment>
 
     <Fragment slot="subtitle">
-      Step into the spotlight with <span class="font-semibold">Astrowind</span> templates, your pathway to fortifying your
-      startup's digital footprint, fostering credibility, and expanding your reach.
+      Con más de <span class="font-semibold">20 años de experiencia</span>, en RLH acompañamos a empresas de todos los tamaños 
+      en su crecimiento, ofreciendo servicios de contabilidad, auditoría y asesoría legal que generan confianza y tranquilidad.
     </Fragment>
 
     <Fragment slot="image">
-      <YouTube id="gxBkghlglTg" title="Astro just Launched.... Could it be the ultimate web framework?" />
+      <YouTube id="gxBkghlglTg" title="Descubre cómo RLH optimiza la gestión contable y tributaria de tu empresa" />
       <style is:inline>
         lite-youtube {
           margin: 0 auto;
@@ -54,33 +53,120 @@ const metadata = {
         }
       </style>
     </Fragment>
-  </Hero>
+</Hero>
 
-  <!-- Features2 Widget ************** -->
+
+  <!-- Features2 Widget ****** -->
 
   <Features2
-    title="About us"
-    subtitle="We believe in the magic of turning dreams into stunning realities. Founded by passionate developers with a shared vision, we set out to simplify the website creation process. Our templates bring together the innovation of Astro 5.0 and the versatility of Tailwind CSS, enabling you to express your unique brand identity like never before."
+    title="Sobre RLH"
+    subtitle="Somos una firma especializada en gestión contable, tributaria, auditoría y asesoría legal con más de 20 años de experiencia en el sector. Nuestro propósito es ayudar a las empresas a crecer de manera sólida, brindando soluciones que previenen riesgos, optimizan procesos y aseguran el cumplimiento normativo. Contamos con un equipo multidisciplinario de profesionales altamente capacitados, comprometidos con ofrecer un servicio personalizado, confiable y eficiente. Nos caracterizamos por la innovación, la confianza y el acompañamiento constante en cada etapa del desarrollo empresarial de nuestros clientes.En RLH creemos que la tranquilidad financiera y tributaria es la base para que las organizaciones puedan enfocarse en lo que realmente importa: su crecimiento y éxito sostenible."
   >
     <Fragment slot="bg">
       <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
     </Fragment>
   </Features2>
 
-  <!-- Stats Widget ****************** -->
+  <!-- Stats Widget ****** -->
 
-  <Stats
-    title="Discover the impressive impact of Astrowind"
-    subtitle="The numbers below reflect the trust our users have placed in us and the remarkable outcomes we've helped them achieve."
-    stats={[
-      { title: 'Downloads', amount: '182K' },
-      { title: 'Websites Launched', amount: '87' },
-      { title: 'User Ratings', amount: '4.8' },
-      { title: 'Satisfied Clients', amount: '116K' },
-    ]}
-  />
+<section id="stats" class="relative py-20 bg-gradient-to-r from-blue-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+  <div class="max-w-6xl mx-auto px-6 text-center relative z-10">
+    <h2 class="text-4xl font-extrabold mb-6 text-gray-800 dark:text-white">
+      Nuestro respaldo en números
+    </h2>
+    <p class="text-lg text-gray-600 dark:text-gray-300 mb-16 max-w-3xl mx-auto">
+      Las cifras reflejan la <span class="text-blue-600 font-semibold">confianza</span> de nuestros clientes 
+      y el compromiso de RLH con la <span class="text-blue-600 font-semibold">excelencia</span> en la gestión contable y tributaria.
+    </p>
 
-  <!-- Brands Widget ****************** -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+      
+      <div class="stat-item opacity-0 translate-y-6 transition-all duration-700 ease-out 
+                  bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl shadow-md 
+                  hover:shadow-xl hover:scale-105 transform p-8">
+        <span class="text-5xl font-extrabold text-blue-600 counter" data-target="20">0</span>
+        <span class="text-5xl font-extrabold text-blue-600">+</span>
+        <p class="mt-3 text-gray-700 dark:text-gray-300">Años de experiencia</p>
+      </div>
+
+      <div class="stat-item opacity-0 translate-y-6 transition-all duration-700 ease-out 
+                  bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl shadow-md 
+                  hover:shadow-xl hover:scale-105 transform p-8">
+        <span class="text-5xl font-extrabold text-blue-600 counter" data-target="100">0</span>
+        <span class="text-5xl font-extrabold text-blue-600">+</span>
+        <p class="mt-3 text-gray-700 dark:text-gray-300">Empresas asesoradas</p>
+      </div>
+
+      <div class="stat-item opacity-0 translate-y-6 transition-all duration-700 ease-out 
+                  bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl shadow-md 
+                  hover:shadow-xl hover:scale-105 transform p-8">
+        <span class="text-5xl font-extrabold text-blue-600 counter" data-target="98">0</span>
+        <span class="text-3xl font-extrabold text-blue-600">%</span>
+        <p class="mt-3 text-gray-700 dark:text-gray-300">Satisfacción de clientes</p>
+      </div>
+
+      <div class="stat-item opacity-0 translate-y-6 transition-all duration-700 ease-out 
+                  bg-white/70 dark:bg-gray-800/70 backdrop-blur-md rounded-2xl shadow-md 
+                  hover:shadow-xl hover:scale-105 transform p-8">
+        <span class="text-5xl font-extrabold text-blue-600 counter" data-target="100">0</span>
+        <span class="text-3xl font-extrabold text-blue-600">%</span>
+        <p class="mt-3 text-gray-700 dark:text-gray-300">Cumplimiento normativo</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="absolute inset-0 bg-gradient-radial from-blue-200/30 via-transparent to-transparent dark:from-blue-500/10"></div>
+</section>
+
+<script is:inline>
+  const counters = document.querySelectorAll('.counter');
+  const speed = 100;
+
+  const animateCounters = () => {
+    counters.forEach(counter => {
+      const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const increment = target / speed;
+
+        if (count < target) {
+          counter.innerText = Math.ceil(count + increment);
+          setTimeout(updateCount, 20);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      updateCount();
+    });
+  };
+
+  const statItems = document.querySelectorAll('.stat-item');
+  let triggered = false;
+
+  const revealOnScroll = () => {
+    const section = document.getElementById('stats');
+    const sectionTop = section.offsetTop - window.innerHeight + 100;
+
+    if (!triggered && window.scrollY > sectionTop) {
+      statItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.remove('opacity-0', 'translate-y-6');
+          item.classList.add('opacity-100', 'translate-y-0');
+        }, index * 200); 
+      });
+      animateCounters();
+      triggered = true;
+    }
+  };
+
+  window.addEventListener('scroll', revealOnScroll);
+</script>
+
+
+
+
+  <!-- Brands Widget ****** -->
 
   <Brands
     title="Partnerships & Collaborations"
@@ -127,191 +213,198 @@ const metadata = {
     ]}
   />
 
-  <!-- Features2 Widget ************** -->
+  <!-- Testimoniosxddd  -->
+<Testimonials
+  title="Lo que dicen nuestros clientes"
+  testimonials={[
+    {
+      testimonial: 'El equipo de RLH nos ha brindado un servicio excepcional en gestión contable y tributaria. Su asesoría ha optimizado nuestros procesos y nos ha dado tranquilidad.',
+      name: 'María López',
+      job: 'CEO - Empresa XYZ',
+      image: {
+        src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=930&q=80',
+        alt: 'María López',
+      },
+    },
+    {
+      testimonial: 'Gracias a RLH nuestra empresa cumple con todas las normativas y hemos logrado mejorar nuestra eficiencia interna. Su equipo es confiable y siempre está disponible.',
+      name: 'Carlos Pérez',
+      job: 'Gerente Financiero - Empresa ABC',
+      image: {
+        src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80',
+        alt: 'Carlos Pérez',
+      },
+    },
+    {
+      testimonial: 'La atención personalizada y profesionalismo de RLH nos ha permitido enfocarnos en nuestro crecimiento sin preocuparnos por los aspectos contables y legales.',
+      name: 'Ana Torres',
+      job: 'Fundadora - Startup LMN',
+      image: {
+        src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=824&q=80',
+        alt: 'Ana Torres',
+      },
+    },
+  ]}
+  callToAction={{
+    target: '_blank',
+    text: 'Ver más testimonios...',
+    href: 'https://github.com/arthelokyo/astrowind',
+    icon: 'tabler:chevron-right',
+  }}
+/>
 
-  <Features2
-    title="What services do we provide?"
-    subtitle="We offer a wide range of website templates that suit various industries and purposes such as business, portfolio, e-commerce, blog, etc."
-    items={[
-      {
-        title: 'Installation Instructions',
-        description:
-          'Offer clear instructions on how to download the purchased templates and install them on various website platforms or content management systems.',
-        icon: 'flat-color-icons:document',
-      },
-      {
-        title: 'Demo and Previews',
-        description:
-          'Provide interactive demos and previews that allow customers to see how their chosen template will look and function before making a purchase.',
-        icon: 'flat-color-icons:template',
-      },
-      {
-        title: 'Technical Support',
-        description:
-          'Providing customer support for any technical issues related to the templates or their implementation.',
-        icon: 'flat-color-icons:voice-presentation',
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </Features2>
 
-  <!-- Features Widget *************** -->
+ <!-- Features2 Widget ****** -->
 
-  <Features
-    id="features"
-    title="Main features of our templates"
-    subtitle="Possess several key characteristics to effectively cater to the needs of startups and entrepreneurs."
-    columns={3}
-    items={[
-      {
-        title: 'Modern and Professional Design',
-        description:
-          'Have a contemporary design that reflects current design trends and gives a professional impression.',
-        icon: 'tabler:artboard',
-      },
-      {
-        title: 'Responsive and Mobile-Friendly',
-        description: 'Adapt seamlessly to different screen sizes and devices to ensure a consistent experience.',
-        icon: 'tabler:picture-in-picture',
-      },
-      {
-        title: 'Customizability',
-        description:
-          'Easily customizable, allowing users to adapt the design, colors, typography, and content to match their brand identity.',
-        icon: 'tabler:adjustments-horizontal',
-      },
-      {
-        title: 'Fast Loading Times',
-        description: 'Optimized for speed to ensure a smooth user experience and favorable search engine rankings.',
-        icon: 'tabler:rocket',
-      },
-      {
-        title: 'Search Engine Optimization (SEO)',
-        description:
-          'Incorporate SEO best practices in template structure and code to improve visibility in search engine results.',
-        icon: 'tabler:arrows-right-left',
-      },
-      {
-        title: 'Compatibility',
-        description: 'The templates work seamlessly across various content management systems and website builders.',
-        icon: 'tabler:plug-connected',
-      },
-    ]}
-  />
+<Features2
+  title="Un poco acerca sobre nuestros servicios"
+  subtitle="En RLH ofrecemos soluciones integrales en gestión contable, tributaria, auditoría y asesoría legal, adaptadas a las necesidades de cada empresa, asegurando eficiencia y cumplimiento normativo."
+  items={[
+    {
+      title: 'Auditoría Tributaria',
+      description:
+        'Revisamos y optimizamos la situación tributaria de tu empresa, asegurando cumplimiento con la normativa vigente y minimizando riesgos fiscales.',
+      icon: 'flat-color-icons:document',
+    },
+    {
+      title: 'Servicios Contables y de Planillas',
+      description:
+        'Gestionamos tus registros contables y planillas con precisión y transparencia, liberando tiempo para que tu empresa se enfoque en crecer.',
+      icon: 'flat-color-icons:template',
+    },
+    {
+      title: 'Asesoría Legal y Consultoría NIIF',
+      description:
+        'Brindamos orientación legal y consultoría en Normas Internacionales de Información Financiera, garantizando decisiones estratégicas basadas en información confiable.',
+      icon: 'flat-color-icons:voice-presentation',
+    },
+  ]}
+>
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
 
-  <!-- FAQs Widget ******************* -->
+  <Fragment slot="classes">
+    {{
 
-  <FAQs
-    title="Frequently Asked Questions"
-    items={[
-      {
-        title: 'What are landing page templates?',
-        description:
-          'Landing page templates are pre-designed web page layouts that are specifically created to serve as a foundation for building effective landing pages. These templates are designed to capture the attention of visitors and guide them towards a specific action or goal, such as signing up for a newsletter, making a purchase, or downloading a resource.',
-      },
-      {
-        title: 'Why should I use a template?',
-        description:
-          'Some of the advantages are that they provide a ready-to-use structure,  saving you significant time. Are designed with user-friendliness in mind and provide a cost-effective alternative, saving you money while still delivering a quality result.',
-      },
-      {
-        title: 'Can I preview templates before buying?',
-        description:
-          'Yes, the templates allow you to preview them before making a purchase. There is a "Demo" button associated with each template.',
-      },
-      {
-        title: 'Do I need technical skills to use a template?',
-        description:
-          'Advanced technical skills are not required to use a template, but having a basic understanding of web navigation and familiarity with using online tools can still be beneficial. If you have more specific customization needs, you might need to consult guides or reach out to customer support for assistance.',
-      },
-      {
-        title: 'Can I use the template on multiple websites?',
-        description:
-          'No, the template comes with a single-use license, meaning you can use the template on one website or project only. Using the template on additional websites would require purchasing additional licenses.',
-      },
-      {
-        title: 'What if I need help with customization?',
-        description:
-          "The templates provides a comprehensive step-by-step guide that walk you through the customization process. If you still have doubts, you can reach out to our customer support team. They can answer your questions, provide guidance on customization, and address any issues you're facing.",
-      },
-    ]}
-  >
-    <Fragment slot="bg">
-      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
-    </Fragment>
-  </FAQs>
+      card: "transition-transform duration-300 ease-out hover:shadow-lg hover:scale-105",
+      title: "text-blue-600 font-semibold",
+      description: "text-gray-700 dark:text-gray-300",
+    }}
+  </Fragment>
+</Features2>
 
-  <!-- Features3 Widget ************** -->
+<script is:inline>
+  const serviceCards = document.querySelectorAll('.intersect-once');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-6');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  serviceCards.forEach(card => observer.observe(card));
+</script>
+
+
+  
+
+ <FAQs
+  title="Preguntas Frecuentes"
+  items={[
+    {
+      title: '¿Qué servicios ofrece RLH?',
+      description:
+        'RLH brinda soluciones integrales en contabilidad, auditoría, tributación, asesoría legal y consultoría en NIIF, adaptadas a las necesidades de cada empresa.',
+    },
+    {
+      title: '¿RLH atiende a empresas de todos los tamaños?',
+      description:
+        'Sí, nuestro equipo está preparado para brindar servicios tanto a pequeñas, medianas como grandes empresas, asegurando un enfoque personalizado para cada cliente.',
+    },
+    {
+      title: '¿Cómo garantiza RLH el cumplimiento normativo?',
+      description:
+        'A través de auditorías periódicas, revisión de procesos contables y tributarios, y asesoría legal constante, aseguramos que la empresa cumpla con todas las regulaciones vigentes.',
+    },
+    {
+      title: '¿Qué tan rápido puedo implementar los servicios?',
+      description:
+        'Dependiendo del servicio, muchos procesos pueden iniciarse de inmediato tras la contratación, y nuestro equipo acompaña a la empresa en cada etapa para asegurar una transición eficiente.',
+    },
+    {
+      title: '¿RLH ofrece soporte o asesoría continua?',
+      description:
+        'Sí, nuestros clientes reciben atención continua y asesoría personalizada para resolver dudas, optimizar procesos y tomar decisiones basadas en información confiable.',
+    },
+    {
+      title: '¿Se pueden personalizar los servicios según la empresa?',
+      description:
+        'Absolutamente. RLH adapta sus servicios a las necesidades específicas de cada cliente, garantizando soluciones a medida que maximicen eficiencia y cumplimiento.',
+    },
+  ]}
+>
+  <Fragment slot="bg">
+    <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+  </Fragment>
+</FAQs>
+
+
+
+  <!-- Features3 Widget ****** -->
 
   <Features3
-    title="Let us know how we can help"
-    subtitle="We’re here to help and answer any question you might have."
-    columns={4}
-    items={[
-      {
-        title: 'Phone',
-        icon: 'tabler:phone',
-        callToAction: {
-          target: '_blank',
-          text: 'Call us',
-          href: '/',
-          variant: 'link',
-        },
-      },
-      {
-        title: 'Email',
-        icon: 'tabler:mail',
-        callToAction: {
-          target: '_blank',
-          text: 'Write to us',
-          href: '/',
-          variant: 'link',
-        },
-      },
-      {
-        title: 'Chat with sales',
-        icon: 'tabler:message-circle',
-        callToAction: {
-          target: '_blank',
-          text: 'Start chatting',
-          href: '/',
-          variant: 'link',
-        },
-      },
-      {
-        title: 'Chat with support',
-        icon: 'tabler:message-circle',
-        callToAction: {
-          target: '_blank',
-          text: 'Start chatting',
-          href: '/',
-          variant: 'link',
-        },
-      },
-    ]}
-  />
-
-  <!-- CallToAction Widget *********** -->
-
-  <CallToAction
-    actions={[
-      {
-        variant: 'primary',
+  title="Contáctanos"
+  subtitle="Estamos aquí para ayudarte, contáctanos por el medio que prefieras."
+  columns={4}
+  items={[
+    {
+      title: 'Teléfono',
+      icon: 'tabler:phone',
+      callToAction: {
         target: '_blank',
-        text: 'Get templates',
-        href: 'https://github.com/arthelokyo/astrowind',
-        icon: 'tabler:download',
+        text: 'Llámanos',
+        href: 'tel:+51 916 642 897',
+        variant: 'link',
       },
-    ]}
-  >
-    <Fragment slot="title">Be a part of our vision</Fragment>
+    },
+    {
+      title: 'Correo electrónico',
+      icon: 'tabler:mail',
+      callToAction: {
+        target: '_blank',
+        text: 'Escríbenos',
+        href: 'mailto:contacto@rlh.com.pe',
+        variant: 'link',
+      },
+    },
+    {
+      title: 'Chat de ventas',
+      icon: 'tabler:message-circle',
+      callToAction: {
+        target: '_blank',
+        text: 'Inicia chat de ventas',
+        href: '/chat-ventas',
+        variant: 'link',
+      },
+    },
+    {
+      title: 'Soporte técnico',
+      icon: 'tabler:message-circle',
+      callToAction: {
+        target: '_blank',
+        text: 'Inicia chat de soporte',
+        href: '/chat-soporte',
+        variant: 'link',
+      },
+    },
+  ]}
+/>
 
-    <Fragment slot="subtitle">
-      Discover a dynamic work environment, unparalleled growth opportunities, and the chance to make a meaningful
-      impact.
-    </Fragment>
-  </CallToAction>
 </Layout>

@@ -116,7 +116,7 @@ export const headerData = {
     },
     {
       text: 'Contáctanos',
-      href: '#',
+      href: getPermalink('/#form'),
     },
   ],
 };
