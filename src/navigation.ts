@@ -60,28 +60,32 @@ export const headerData = {
       text: 'Servicios',
       links: [
         {
-          text: 'Lead Generation',
-          href: getPermalink('/landing/lead-generation'),
+          text: 'Asesoría y Auditoría Tributaria',
+          href: getPermalink('/servicios/asesoria-tributaria'),
         },
         {
-          text: 'Long-form Sales',
-          href: getPermalink('/landing/sales'),
+          text: 'Servicios Contables y de Planillas',
+          href: getPermalink('/servicios/servicios-contables'),
         },
         {
-          text: 'Click-Through',
-          href: getPermalink('/landing/click-through'),
+          text: 'Asesoría Legal',
+          href: getPermalink('/servicios/asesoria-legal'),
         },
         {
-          text: 'Product Details (or Services)',
-          href: getPermalink('/landing/product'),
+          text: 'Auditoría Financiera',
+          href: getPermalink('/servicios/auditoria-financiera'),
         },
         {
-          text: 'Coming Soon or Pre-Launch',
-          href: getPermalink('/landing/pre-launch'),
+          text: 'Consultoría en NIIF',
+          href: getPermalink('/servicios/consulta-niif'),
         },
         {
-          text: 'Subscription',
-          href: getPermalink('/landing/subscription'),
+          text: 'Capacitaciones In-House',
+          href: getPermalink('/servicios/capacitaciones-in-house'),
+        },
+        {
+          text: 'Otros Servicios',
+          href: getPermalink('/servicios/otros-servicios'),
         },
       ],
     },
