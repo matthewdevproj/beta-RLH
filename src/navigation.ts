@@ -44,7 +44,6 @@ export const headerData = {
         },
         {
           text: 'Contact',
-          href: getPermalink('/contact'),
         },
         {
           text: 'Terms',
@@ -116,7 +115,7 @@ export const headerData = {
     },
     {
       text: 'Contáctanos',
-      href: getPermalink('/#form'),
+          href: getPermalink('/contact'),
     },
   ],
 };

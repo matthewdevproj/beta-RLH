@@ -5,14 +5,11 @@ import Hero from '~/components/widgets/Hero.astro';
 import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Content from '~/components/widgets/Content.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
-import FAQs from '~/components/widgets/FAQs.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
+import BrandsPersonalizadas from '~/components/widgets/BrandsPersonalizadas.astro';
+import TestimonialsPersonalizadas from '~/components/widgets/TestimonialsPersonalizadas.astro';
+import Statspersonalizadas from '~/components/widgets/Statspersonalizadas.astro';
+
 
 
 const metadata = {
@@ -24,29 +21,18 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
 
-  <Hero
-    actions={[
-      {
-        variant: 'primary',
-        text: 'Get template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        target: '_blank',
-        icon: 'tabler:download',
-      },
-      { text: 'Learn more', href: '#features' },
-    ]}
-    image={{ src: '~/assets/images/hero-image.png', alt: 'main-image' }}
-  >
+  <Hero>
     <Fragment slot="title">
       CONOCE NUESTROS <span class="hidden xl:inline">SERVICIOS DE GESTIÓN</span>
-      <span class="text-accent dark:text-white"> CONTABLE</span> Y <span class="text-accent dark:text-white">TRIBUTARIA</span>
+      <span class="text-accent dark:text-white"> CONTABLE</span> Y 
+      <span class="text-accent dark:text-white">TRIBUTARIA</span> 
     </Fragment>
 
     <Fragment slot="subtitle">
       <span class="hidden sm:inline">
-        <span class="font-semibold">"N.Empresa."</span> Con 20 años de experiencia en prevención, somos expertos en ofrecer soluciones que previenen riesgos y optimizan procesos. Entérate lo que podemos ofrecerte.</span>
-      <span class="block mb-1 sm:hidden font-bold text-blue-600">AstroWind: Production-ready.</span>
-      Auditoría Tributaria, Servicios Contables y de Planillas, Asesoria Legal, Auditoria Financiera, Consultoría en NIIF Y Capacitaciones.
+        <span class="font-semibold">En RLH</span> contamos con mas de 20 años de experiencia en prevención, somos expertos en ofrecer
+      soluciones que previenen riesgos y optimizan procesos.
+      </span>
     </Fragment>
   </Hero>
 
@@ -115,38 +101,9 @@ const metadata = {
                 `}
   />
 
-  <!-- HeroText Widget ******************* -->
+  <!-- Stats Personalizadas ******************* -->
 
-  <HeroText tagline="Contacto" title="Ponte en comunicación con nosotros" />
-
-  <!-- Contactanos Widget ******************* -->
-
-  <ContactUs
-  id="form"
-  title="Envíanos un mensaje hoy mismo."
-  subtitle='Para respuestas más rápidas, te invitamos a revisar nuestra sección de <a href="#FAQS"><strong>Preguntas Frecuentes (FAQ)</strong></a>, donde quizá encuentres lo que buscas. Si no es así, nuestro equipo de soporte estará encantado de ayudarte.'
-  inputs={[
-    {
-      type: 'text',
-      name: 'name',
-      label: 'Nombres: ',
-    },
-    {
-      type: 'email',
-      name: 'email',
-      label: 'Correo: ',
-    },
-  ]}
-  textarea={{
-    label: 'Descripción: ',
-  }}
-  disclaimer={{
-    label:
-      'Al enviar este formulario de contacto, usted declara recibir información según la descripción brindada.',
-  }}
-  description="Nuestro equipo de soporte responde habitualmente en un plazo no mayor a 24 horas hábiles."
-/>
-
+  <Statspersonalizadas />
 
   <!-- FAQs Widget ******************* -->
   
@@ -193,58 +150,89 @@ const metadata = {
         icon: 'tabler:bulb',
       },
     ]}
-    
   />
 
-  <!-- Features Widget ***** -->
+  <!-- Brands Personalizadas ******************* -->
 
-<Features
-  id="features"
-  title="Beneficios de trabajar con RLH"
-  subtitle="Contamos con un equipo multidisciplinario y ofrecemos soluciones integrales que aseguran eficiencia, cumplimiento normativo y tranquilidad para tu empresa."
-  columns={3}
-  items={[
+
+  <BrandsPersonalizadas
+    title="Empresas que confían en nosotros"
+    subtitle="Estas son algunas de las compañías y marcas que han elegido nuestras soluciones contables y tributarias para impulsar su crecimiento."
+    icons={[]}
+    images={[
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png',
+        alt: 'Paypal',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2021/12/06/13/48/visa-6850402_1280.png',
+        alt: 'Visa',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2013/10/01/10/29/ebay-189064_1280.png',
+        alt: 'Ebay',
+      },
+
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png',
+        alt: 'Youtube',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png',
+        alt: 'Microsoft',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png',
+        alt: 'Node JS',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png',
+        alt: 'Google',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2021/12/06/13/45/meta-6850393_1280.png',
+        alt: 'Meta',
+      },
+      {
+        src: 'https://cdn.pixabay.com/photo/2013/01/29/22/53/yahoo-76684_1280.png',
+        alt: 'Yahoo',
+      },
+    ]}
+  />
+
+  <!-- Testimonials Personalizadas ******************* -->
+
+
+  <TestimonialsPersonalizadas
+  title="Lo que dicen nuestros clientes"
+  testimonials={[
     {
-      title: 'Experiencia Comprobada',
-      description:
-        'Más de 20 años acompañando a empresas de distintos tamaños, garantizando asesoría confiable y profesional.',
-      icon: 'tabler:briefcase',
+      testimonial: `El equipo de RLH nos ha brindado un servicio excepcional en gestión contable y tributaria. Su asesoría ha optimizado nuestros procesos y nos ha dado tranquilidad.`,
+      name: 'María López',
+      job: 'CEO - Empresa XYZ',
+      image: {
+        src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=930&q=80',
+        alt: 'María López',
+      },
     },
     {
-      title: 'Soluciones Integrales',
-      description:
-        'Ofrecemos servicios contables, tributarios, auditoría y asesoría legal en un solo lugar, facilitando la gestión de tu empresa.',
-      icon: 'tabler:briefcase',
+      testimonial: `Gracias a RLH nuestra empresa cumple con todas las normativas y hemos logrado mejorar nuestra eficiencia interna. Su equipo es confiable y siempre está disponible.`,
+      name: 'Carlos Pérez',
+      job: 'Gerente Financiero - Empresa ABC',
+      image: {
+        src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80',
+        alt: 'Carlos Pérez',
+      },
     },
     {
-      title: 'Cumplimiento Normativo',
-      description:
-        'Aseguramos que tu empresa cumpla con todas las normativas contables y tributarias vigentes, minimizando riesgos.',
-      icon: 'tabler:shield-check',
-    },
-    {
-      title: 'Optimización de Procesos',
-      description:
-        'Analizamos y mejoramos los procesos contables y financieros, logrando eficiencia y reducción de errores.',
-      icon: 'tabler:settings',
-    },
-    {
-      title: 'Atención Personalizada',
-      description:
-        'Cada cliente recibe un servicio adaptado a sus necesidades específicas, con seguimiento cercano y constante.',
-      icon: 'tabler:user-circle',
-    },
-    {
-      title: 'Confianza y Transparencia',
-      description:
-        'Trabajamos con absoluta transparencia en la información contable y financiera, generando seguridad y confianza.',
-      icon: 'tabler:briefcase',
+      testimonial: `La atención personalizada y profesionalismo de RLH nos ha permitido enfocarnos en nuestro crecimiento sin preocuparnos por los aspectos contables y legales.`,
+      name: 'Ana Torres',
+      job: 'Fundadora - Startup LMN',
+      image: {
+        src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=824&q=80',
+        alt: 'Ana Torres',
+      },
     },
   ]}
 />
-
-
-
-  
-
 </Layout>

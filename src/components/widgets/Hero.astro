@@ -1,99 +1,72 @@
 ---
-import Image from '~/components/common/Image.astro';
 import Button from '~/components/ui/Button.astro';
-
 import type { Hero as Props } from '~/types';
 
 const {
   title = await Astro.slots.render('title'),
   subtitle = await Astro.slots.render('subtitle'),
   tagline,
-
   content = await Astro.slots.render('content'),
-  actions = await Astro.slots.render('actions'),
-  image = await Astro.slots.render('image'),
-
+  bgImage ='/fondo (6).gif', 
   id,
-  bg = await Astro.slots.render('bg'),
 } = Astro.props;
 ---
 
-<section class="relative md:-mt-[76px] not-prose" {...id ? { id } : {}}>
-  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-    <slot name="bg">
-      {bg ? <Fragment set:html={bg} /> : null}
-    </slot>
+<section
+  class="relative w-full h-screen bg-cover bg-center flex items-center justify-center text-center not-prose"
+  style={`background-image: url('${bgImage}');`}
+  {...(id ? { id } : {})}
+>
+  <!-- Overlay oscuro -->
+  <div class=" absolute inset-0 bg-black bg-opacity-80"></div>
+
+  <!-- Contenido centrado -->
+  <div class=" text-white dark:text-gray-100 relative z-10 max-w-3xl px-6">
+    {tagline && (
+      <p
+        class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase"
+        set:html={tagline}
+      />
+    )}
+
+    {title && (
+      <h1
+        class="text-4xl md:text-5xl font-extrabold text-white mb-6"
+        set:html={title}
+      />
+    )}
+
+    {subtitle && (
+      <p
+        class="text-lg text-gray-200 mb-6"
+        set:html={subtitle}
+      />
+    )}
+
+
+  <div class="flex justify-center">
+    <Button
+      href="/contact"
+class={`group relative inline-block px-8 py-3 font-semibold text-white rounded-lg shadow-lg
+       bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 dark:from-purple-900 dark:via-indigo-800 dark:to-purple-900
+       transition-all duration-500 ease-out
+       hover:scale-105 hover:shadow-2xl hover:from-blue-700 hover:via-indigo-600 hover:to-blue-600
+       overflow-hidden`}
+
+    >
+      <span class="relative z-10">Solicita más información</span>
+      <span
+        class="absolute inset-0 w-1/3 bg-white/30 skew-x-12
+               -translate-x-full group-hover:translate-x-[400%]
+               transition-transform duration-700 ease-in-out
+               pointer-events-none"
+      ></span>
+    </Button>
   </div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="pt-0 md:pt-[76px] pointer-events-none"></div>
-    <div class="py-12 md:py-20">
-      <div class="text-center pb-10 md:pb-16 max-w-5xl mx-auto">
-        {
-          tagline && (
-            <p
-              class="text-base text-secondary dark:text-blue-200 font-bold tracking-wide uppercase intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-              set:html={tagline}
-            />
-          )
-        }
-        {
-          title && (
-            <h1
-              class="text-5xl md:text-6xl font-bold leading-tighter tracking-tighter mb-4 font-heading dark:text-gray-200 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-              set:html={title}
-            />
-          )
-        }
-        <div class="max-w-3xl mx-auto">
-          {
-            subtitle && (
-              <p
-                class="text-xl text-muted mb-6 dark:text-slate-300 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-                set:html={subtitle}
-              />
-            )
-          }
-          {
-            actions && (
-              <div class="max-w-xs sm:max-w-md m-auto flex flex-nowrap flex-col sm:flex-row sm:justify-center gap-4 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
-                {Array.isArray(actions) ? (
-                  actions.map((action) => (
-                    <div class="flex w-full sm:w-auto">
-                      <Button {...(action || {})} class="w-full sm:mb-0" />
-                    </div>
-                  ))
-                ) : (
-                  <Fragment set:html={actions} />
-                )}
-              </div>
-            )
-          }
-        </div>
-        {content && <Fragment set:html={content} />}
-      </div>
-      <div
-        class="intersect-once intersect-no-queue intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-      >
-        {
-          image && (
-            <div class="relative m-auto max-w-5xl">
-              {typeof image === 'string' ? (
-                <Fragment set:html={image} />
-              ) : (
-                <Image
-                  class="mx-auto rounded-md w-full"
-                  widths={[400, 768, 1024, 2040]}
-                  sizes="(max-width: 767px) 400px, (max-width: 1023px) 768px, (max-width: 2039px) 1024px, 2040px"
-                  loading="eager"
-                  width={1024}
-                  height={576}
-                  {...image}
-                />
-              )}
-            </div>
-          )
-        }
-      </div>
-    </div>
+
+
+
+
+    {content && <Fragment set:html={content} />}
   </div>
 </section>

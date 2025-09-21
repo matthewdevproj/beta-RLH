@@ -1,0 +1,89 @@
+---
+import Headline from '~/components/ui/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Image from '~/components/common/Image.astro';
+import type { Testimonials as Props } from '~/types';
+
+
+const {
+  title = '',
+  subtitle = '',
+  tagline = '',
+  testimonials = [],
+  id,
+  isDark = false,
+  classes = {},
+  bg = await Astro.slots.render('bg'),
+} = Astro.props;
+---
+
+<WidgetWrapper id={id} isDark={isDark} containerClass={`max-w-6xl mx-auto ${classes?.container ?? ''}`} bg={bg}>
+  <Headline title={title} subtitle={subtitle} tagline={tagline} />
+
+  <div id="testimonials-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {testimonials &&
+      testimonials.map(({ title, testimonial, name, job, image }, index) => (
+        <div class="testimonial-card flex h-auto intersect-once motion-safe:md:intersect:animate-fade motion-safe:md:opacity-0 intersect-quarter transition-transform duration-500 ease-out"
+          style={`transition-delay: ${index * 150}ms`}
+        >
+          <div class="flex flex-col p-4 md:p-6 rounded-md shadow-xl dark:shadow-none dark:border dark:border-slate-600 
+                      transform hover:-translate-y-1 hover:shadow-2xl transition-all duration-500">
+            
+            {title && <h2 class="text-lg font-medium leading-6 pb-4 text-blue-600">{title}</h2>}
+            
+            {testimonial && (
+              <blockquote class="flex-auto">
+                <p class="text-muted dark:text-gray-300">" {testimonial} "</p>
+              </blockquote>
+            )}
+
+            <hr class="border-slate-200 dark:border-slate-600 my-4" />
+
+            <div class="flex items-center">
+              {image && (
+                <div class="h-10 w-10 rounded-full border border-slate-200 dark:border-slate-600 overflow-hidden">
+                  {typeof image === 'string' ? (
+                    <Fragment set:html={image} />
+                  ) : (
+                    <Image
+                      class="h-10 w-10 object-cover min-w-full min-h-full"
+                      width={40}
+                      height={40}
+                      widths={[400, 768]}
+                      layout="fixed"
+                      {...image}
+                    />
+                  )}
+                </div>
+              )}
+
+              <div class="grow ml-3 rtl:ml-0 rtl:mr-3">
+                {name && <p class="text-base font-semibold text-blue-600">{name}</p>}
+                {job && <p class="text-xs text-muted dark:text-gray-400">{job}</p>}
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+  </div>
+
+
+</WidgetWrapper>
+
+<script is:inline>
+  const testimonialItems = document.querySelectorAll('.intersect-once');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('opacity-0', 'translate-y-6');
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  testimonialItems.forEach(item => observer.observe(item));
+</script>

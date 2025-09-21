@@ -12,33 +12,35 @@ const metadata = {
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <HeroText tagline="Contacto" title="Ponte en comunicación con nosotros" />
+
+  <!-- Contactanos Widget ******************* -->
 
   <ContactUs
-    id="form"
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
+  id="form"
+  title="Envíanos un mensaje hoy mismo."
+  subtitle='Para respuestas más rápidas, te invitamos a revisar nuestra sección de <a href="#FAQS"><strong>Preguntas Frecuentes (FAQ)</strong></a>, donde quizá encuentres lo que buscas. Si no es así, nuestro equipo de soporte estará encantado de ayudarte.'
+  inputs={[
+    {
+      type: 'text',
+      name: 'name',
+      label: 'Nombres: ',
+    },
+    {
+      type: 'email',
+      name: 'email',
+      label: 'Correo: ',
+    },
+  ]}
+  textarea={{
+    label: 'Descripción: ',
+  }}
+  disclaimer={{
+    label:
+      'Al enviar este formulario de contacto, usted declara recibir información según la descripción brindada.',
+  }}
+  description="Nuestro equipo de soporte responde habitualmente en un plazo no mayor a 24 horas hábiles."
+/>
 
   <!-- Features2 Widget ************** -->
 

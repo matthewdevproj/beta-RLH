@@ -1,20 +1,21 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 
 import Hero from '~/components/widgets/Hero.astro';
 
 
 import Features2 from '~/components/widgets/Features2.astro';
-import Features from '~/components/widgets/Features.astro';
-import Testimonials from '~/components/widgets/Testimonials.astro';
 import Features3 from '~/components/widgets/Features3.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Brands from '~/components/widgets/Brands.astro';
-
 import { YouTube } from 'astro-embed';
 
 const metadata = {
-  title: 'Startup Landing Page',
+  
+  title: 'Startup Landing Page', 
 };
 ---
 
@@ -213,45 +214,7 @@ const metadata = {
     ]}
   />
 
-  <!-- Testimoniosxddd  -->
-<Testimonials
-  title="Lo que dicen nuestros clientes"
-  testimonials={[
-    {
-      testimonial: 'El equipo de RLH nos ha brindado un servicio excepcional en gestión contable y tributaria. Su asesoría ha optimizado nuestros procesos y nos ha dado tranquilidad.',
-      name: 'María López',
-      job: 'CEO - Empresa XYZ',
-      image: {
-        src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=930&q=80',
-        alt: 'María López',
-      },
-    },
-    {
-      testimonial: 'Gracias a RLH nuestra empresa cumple con todas las normativas y hemos logrado mejorar nuestra eficiencia interna. Su equipo es confiable y siempre está disponible.',
-      name: 'Carlos Pérez',
-      job: 'Gerente Financiero - Empresa ABC',
-      image: {
-        src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80',
-        alt: 'Carlos Pérez',
-      },
-    },
-    {
-      testimonial: 'La atención personalizada y profesionalismo de RLH nos ha permitido enfocarnos en nuestro crecimiento sin preocuparnos por los aspectos contables y legales.',
-      name: 'Ana Torres',
-      job: 'Fundadora - Startup LMN',
-      image: {
-        src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=824&q=80',
-        alt: 'Ana Torres',
-      },
-    },
-  ]}
-  callToAction={{
-    target: '_blank',
-    text: 'Ver más testimonios...',
-    href: 'https://github.com/arthelokyo/astrowind',
-    icon: 'tabler:chevron-right',
-  }}
-/>
+
 
 
  <!-- Features2 Widget ****** -->
