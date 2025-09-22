@@ -3,6 +3,7 @@ publishDate: 2025-09-21T00:00:00Z
 author: Estudio RLH
 title: Boletín Jurídico Semanal – Septiembre 2025
 excerpt: Resumen de normas, jurisprudencia y actualidad legal de la semana, con análisis y puntos clave.
+image: https://images.unsplash.com/photo-1561069934-eee225952461?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
 category: Boletines
 tags:
   - derecho
@@ -11,7 +12,6 @@ tags:
 metadata:
   canonical: https://tusitio.com/boletin-semanal-2025-09-21
 ---
-import Logo from '~/components/Logo.astro';
 
 # Boletín Tributario y Laboral – Primera Quincena de Septiembre del 2025
 
