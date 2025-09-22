@@ -49,34 +49,39 @@
 </section>
 
 <script is:inline>
-  const counters = document.querySelectorAll('.counter');
-  const statItems = document.querySelectorAll('.stat-item');
-  const speed = 100;
+  function initStats() {
+    const counters = document.querySelectorAll('.counter');
+    const statItems = document.querySelectorAll('.stat-item');
+    const speed = 100;
 
-  function animateCounters() {
-    counters.forEach(counter => {
-      const target = +counter.dataset.target;
-      let count = 0;
-      const step = () => {
-        count += Math.ceil(target / speed);
-        counter.textContent = count < target ? count : target;
-        if (count < target) requestAnimationFrame(step);
-      };
-      requestAnimationFrame(step);
-    });
+    function animateCounters() {
+      counters.forEach(counter => {
+        const target = +counter.dataset.target;
+        let count = 0;
+        const step = () => {
+          count += Math.ceil(target / speed);
+          counter.textContent = count < target ? count : target;
+          if (count < target) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          statItems.forEach((item, i) =>
+            setTimeout(() => item.classList.replace('opacity-0','opacity-100'), i * 200)
+          );
+          animateCounters();
+          obs.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+
+    observer.observe(document.getElementById('stats'));
   }
 
-  const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        statItems.forEach((item, i) =>
-          setTimeout(() => item.classList.replace('opacity-0','opacity-100'), i * 200)
-        );
-        animateCounters();
-        obs.disconnect();
-      }
-    });
-  }, { threshold: 0.2 });
-
-  observer.observe(document.getElementById('stats'));
+  document.addEventListener('astro:after-swap', initStats);
+  initStats();
 </script>

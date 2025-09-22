@@ -2,13 +2,13 @@
 import Layout from '~/layouts/PageLayout.astro';
 
 import Hero from '~/components/widgets/Hero.astro';
-import Note from '~/components/widgets/Note.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import BrandsPersonalizadas from '~/components/widgets/BrandsPersonalizadas.astro';
 import TestimonialsPersonalizadas from '~/components/widgets/TestimonialsPersonalizadas.astro';
 import Statspersonalizadas from '~/components/widgets/Statspersonalizadas.astro';
+import NotePersonalizada from '~/components/widgets/NotePersonalizada.astro';
 
 
 
@@ -39,7 +39,7 @@ const metadata = {
 
   <!-- Nota Widget ******* -->
 
-  <Note title="RLH" description="Cuenta con un equipo multidisciplinario de especialistas en contabilidad, auditoría y asesoría legal, enfocados en ofrecer soluciones que generan confianza y eficiencia." />
+  <NotePersonalizada title="RLH" description="Cuenta con un equipo multidisciplinario de especialistas en contabilidad, auditoría y asesoría legal, enfocados en ofrecer soluciones que generan confianza y eficiencia." />
   
   <!-- Servicios Widget ************** -->
 
@@ -98,7 +98,7 @@ const metadata = {
   <BlogLatestPosts
     title="Novedades normativas"
     information={`Conoce las disposiciones, actualizaciones y cambios normativos más relevantes. Este boletín brinda información clara y oportuna para facilitar el cumplimiento de las obligaciones legales y respaldar una adecuada toma de decisiones en materia tributaria y laboral.
-                `}
+              `}
   />
 
   <!-- Stats Personalizadas ******************* -->
@@ -210,7 +210,7 @@ const metadata = {
   <!-- Testimonials Personalizadas ******************* -->
 
 
-  <TestimonialsPersonalizadas
+<TestimonialsPersonalizadas
   title="Lo que dicen nuestros clientes"
   testimonials={[
     {
@@ -238,6 +238,33 @@ const metadata = {
       image: {
         src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=824&q=80',
         alt: 'Ana Torres',
+      },
+    },
+    {
+      testimonial: `RLH convirtió procesos complejos en soluciones claras y efectivas. Su equipo contable nos da total confianza en cada cierre financiero.`,
+      name: 'Mark Thompson',
+      job: 'Director Creativo',
+      image: {
+        src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80',
+        alt: 'Mark Thompson',
+      },
+    },
+    {
+      testimonial: `Su creatividad y enfoque práctico nos ayudaron a mejorar la planificación tributaria y fortalecer la identidad de nuestra empresa.`,
+      name: 'Emily Martínez',
+      job: 'CEO',
+      image: {
+        src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=772&q=80',
+        alt: 'Emily Martínez',
+      },
+    },
+    {
+      testimonial: `Gracias a RLH ahora contamos con informes claros y una estrategia fiscal que nos permite crecer de forma segura y ordenada.`,
+      name: 'Laura Simón',
+      job: 'Fundadora de ONG',
+      image: {
+        src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80',
+        alt: 'Laura Simón',
       },
     },
   ]}

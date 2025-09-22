@@ -1,8 +1,5 @@
 ---
 import '~/assets/styles/tailwind.css';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 
 import { I18N } from 'astrowind:config';
 
@@ -14,6 +11,8 @@ import Metadata from '~/components/common/Metadata.astro';
 import SiteVerification from '~/components/common/SiteVerification.astro';
 import Analytics from '~/components/common/Analytics.astro';
 import BasicScripts from '~/components/common/BasicScripts.astro';
+import WhatsappButton from '~/components/widgets/WhatsappButton.astro';
+
 
 // Comment the line below to disable View Transitions
 import { ClientRouter } from 'astro:transitions';
@@ -38,13 +37,15 @@ const { language, textDirection } = I18N;
     <Metadata {...metadata} />
     <SiteVerification />
     <Analytics />
-
-    <!-- Comment the line below to disable View Transitions -->
     <ClientRouter fallback="swap" />
   </head>
 
+  
+
   <body class="antialiased text-default bg-page tracking-tight">
     <slot />
+
+    <WhatsappButton />
 
     <BasicScripts />
   </body>

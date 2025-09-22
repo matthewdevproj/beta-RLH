@@ -4,29 +4,27 @@ import { twMerge } from 'tailwind-merge';
 import Button from './Button.astro';
 import { Icon } from 'astro-icon/components';
 
-const { items = [], defaultIcon = '', classes = {} } = Astro.props;
+const { items = [], classes = {} } = Astro.props;
 
 const {
   container: containerClass = '',
   panel: panelClass = '',
   title: titleClass = '',
-  description: descriptionClass = '',
-  icon: defaultIconClass = 'text-primary',
   action: actionClass = '',
 } = classes;
 ---
 
 <div
   class={twMerge(
-    "flex flex-col space-y-2 w-full", // <- aquí controlas la separación
+    "flex flex-col space-y-2 w-full",
     containerClass
   )}
   data-accordion-group
 >
-  {items.map(({ title, description, icon, callToAction, classes: itemClasses = {} }) => (
+  {items.map(({ title, description, callToAction, classes: itemClasses = {} }) => (
     <div
       class={twMerge(
-        "rounded-xl shadow-sm bg-white dark:bg-gray-900 overflow-hidden", // cada FAQ con borde redondeado
+        "rounded-xl shadow-sm bg-white dark:bg-gray-900 overflow-hidden",
         panelClass,
         itemClasses?.panel
       )}
@@ -68,31 +66,30 @@ const {
 
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
+  function initAccordion() {
     const groups = document.querySelectorAll("[data-accordion-group]");
 
     groups.forEach((group) => {
       const items = group.querySelectorAll("[data-accordion]");
 
       items.forEach((item) => {
-        const btn = item.querySelector<HTMLButtonElement>("[data-accordion-btn]");
-        const content = item.querySelector<HTMLElement>("[data-accordion-content]");
-        const icon = item.querySelector<HTMLElement>("[data-accordion-icon]");
+        const btn = item.querySelector("[data-accordion-btn]") as HTMLElement | null;
+        const content = item.querySelector("[data-accordion-content]") as HTMLElement | null;
+        const icon = item.querySelector("[data-accordion-icon]") as HTMLElement | null;
 
-        if (btn && content && icon) {
+        if (btn && content && icon && !btn.dataset.listenerAttached) {
+          btn.dataset.listenerAttached = "true";
           btn.addEventListener("click", () => {
             const isOpen = item.classList.contains("open");
 
-            // cerrar todos
             items.forEach((el) => {
+              const elContent = el.querySelector("[data-accordion-content]") as HTMLElement | null;
+              const elIcon = el.querySelector("[data-accordion-icon]") as HTMLElement | null;
               el.classList.remove("open");
-              const elContent = el.querySelector<HTMLElement>("[data-accordion-content]");
-              const elIcon = el.querySelector<HTMLElement>("[data-accordion-icon]");
               if (elContent) elContent.style.maxHeight = "";
               if (elIcon) elIcon.style.transform = "rotate(0deg)";
             });
 
-            // abrir clickeado
             if (!isOpen) {
               item.classList.add("open");
               content.style.maxHeight = `${content.scrollHeight}px`;
@@ -102,5 +99,8 @@ const {
         }
       });
     });
-  });
+  }
+
+  document.addEventListener("DOMContentLoaded", initAccordion);
+  document.addEventListener("astro:after-swap", initAccordion);
 </script>
