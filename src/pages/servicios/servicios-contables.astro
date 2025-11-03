@@ -1,38 +1,153 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
-  title: 'Sales Landing Page Demo',
+  title: 'Servicios Contables - Contabilidad Integral para Empresas | CRIS Consultoría',
+  description: 'Servicios contables completos: desde contabilidad básica hasta reportes gerenciales avanzados. Outsourcing contable y nómina.',
 };
+
+const accountingServices = [
+  {
+    title: 'Contabilidad Básica',
+    description: 'Registro de operaciones y elaboración de estados financieros básicos.',
+    highlights: ['Registro diario', 'Estados financieros', 'Conciliaciones bancarias'],
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Nómina y Prestaciones',
+    description: 'Administración integral de nómina y beneficios sociales.',
+    highlights: ['Liquidación nómina', 'Prestaciones sociales', 'Parafiscales'],
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Contabilidad de Costos',
+    description: 'Sistemas de costeo y control presupuestal.',
+    highlights: ['Costos estándar', 'Costeo por actividades', 'Control presupuestal'],
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Reportes Gerenciales',
+    description: 'Informes financieros para toma de decisiones estratégicas.',
+    highlights: ['Dashboard financiero', 'Análisis de ratios', 'Proyecciones'],
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  }
+];
+
+const benefits = [
+  {
+    title: 'Precisión',
+    description: 'Información contable exacta y confiable.',
+    icon: 'tabler:check',
+  },
+  {
+    title: 'Oportunidad',
+    description: 'Reportes financieros en tiempo récord.',
+    icon: 'tabler:clock',
+  },
+  {
+    title: 'Confiabilidad',
+    description: 'Cumplimiento de normativas vigentes.',
+    icon: 'tabler:shield-check',
+  },
+  {
+    title: 'Soporte',
+    description: 'Asesoría contable permanente.',
+    icon: 'tabler:headset',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero2 Widget ******************* -->
-
+  <!-- Hero Section -->
   <Hero2
-    tagline="Áreas Contables"
-    title="Servicios Contables y de Planillas"
-    subtitle="Gestionamos la contabilidad y las planillas de su empresa de manera eficiente, ya sea bajo la modalidad InHouse o mediante Outsourcing, respaldados por nuestro equipo de especialistas tributarios, contables y laborales, garantizando siempre la confidencialidad de la información."
-    actions={[
-      { variant: 'primary', text: 'Ver Más', href: '#', icon: 'tabler:square-rounded-arrow-right' },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1621452773781-0f992fd1f5cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1626&q=80',
-      alt: 'Children telling a story. Long-form Sales Landing Page demo',
-    }}
-  />
-
-  <CallToAction
-    title="Coming soon"
-    subtitle="We are working on the content of these demo pages. You will see them very soon. Stay tuned Stay tuned!"
+    tagline="Precisión y Confiabilidad"
+    title="Servicios <span class='text-gray-800 dark:text-gray-200'>Contables Integrales</span>"
+    subtitle="Soluciones contables completas que garantizan el orden y cumplimiento de su información financiera, desde contabilidad básica hasta reportes gerenciales avanzados."
     actions={[
       {
         variant: 'primary',
-        text: 'Download Template',
-        href: 'https://github.com/arthelokyo/astrowind',
+        text: 'Organizar Contabilidad',
+        href: '#servicios',
+        icon: 'tabler:arrow-down',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+      alt: 'Servicios contables profesionales',
+    }}
+  />
+
+  <!-- Servicios Section -->
+  <CallToAction
+    id="servicios"
+    title="Servicios Contables Completos"
+    subtitle="Gestión integral de su información financiera con los más altos estándares:"
+    services={accountingServices}
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Cotizar Servicios',
+        href: '#contacto',
+        icon: 'tabler:calculator',
+      },
+      {
+        variant: 'secondary',
+        text: 'Urgencia Contable',
+        href: 'https://api.whatsapp.com/send/?phone=573001234567&text=Urgencia+contable&type=phone_number&app_absent=0',
+        icon: 'tabler:clock',
+      },
+    ]}
+  />
+
+  <!-- Beneficios Section -->
+  <Content
+    isAfterContent
+    isReversed
+    items={benefits}
+    image={{
+      src: 'https://images.unsplash.com/photo-1554224154-2604c5a6d0d9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+      alt: 'Proceso de trabajo contable',
+    }}
+  >
+    <Fragment slot="content">
+      <div class="space-y-6">
+        <h3 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+          Contabilidad que Impulsa su Negocio
+        </h3>
+        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          Más que números, entregamos información estratégica para la toma de decisiones. 
+          Nuestros servicios contables le permiten enfocarse en su negocio mientras 
+          nosotros garantizamos la exactitud y cumplimiento de su información financiera.
+        </p>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Final CTA Section -->
+  <CallToAction
+    id="contacto"
+    title="¿Necesita Ordenar su Contabilidad?"
+    subtitle="Obtenga una cotización personalizada para sus servicios contables."
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Cotizar Servicios',
+        href: 'https://api.whatsapp.com/send/?phone=573001234567&text=Necesito+cotización+para+servicios+contables&type=phone_number&app_absent=0',
+        icon: 'tabler:calculator',
+      },
+      {
+        variant: 'secondary',
+        text: 'Llamar Contador',
+        href: 'tel:+573001234567',
+        icon: 'tabler:phone',
+      },
+      {
+        variant: 'secondary',
+        text: 'Kit Bienvenida',
+        href: '/kit-contable',
         icon: 'tabler:download',
       },
     ]}

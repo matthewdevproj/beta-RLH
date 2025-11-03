@@ -1,38 +1,152 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
-  title: 'Product Details Landing Page Demo',
+  title: 'Auditoría Financiera - Revisión y Certificación de Estados Financieros | CRIS Consultoría',
+  description: 'Auditorías externas e internas para verificación de estados financieros y cumplimiento normativo. Certificación NIIF y due diligence.',
 };
+
+const auditServices = [
+  {
+    title: 'Auditoría Externa',
+    description: 'Revisión independiente de estados financieros para su certificación.',
+    highlights: ['Normas internacionales', 'Dictámenes auditoría', 'Certificación contable'],
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Auditoría Interna',
+    description: 'Evaluación de controles internos y procesos empresariales.',
+    highlights: ['Controles internos', 'Evaluación de riesgos', 'Mejora continua'],
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Due Diligence',
+    description: 'Análisis exhaustivo para procesos de compraventa de empresas.',
+    highlights: ['Evaluación financiera', 'Análisis legal', 'Verificación comercial'],
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Auditoría Forense',
+    description: 'Investigación de fraudes y irregularidades financieras.',
+    highlights: ['Detección de fraudes', 'Investigación financiera', 'Pruebas periciales'],
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  }
+];
+
+const benefits = [
+  {
+    title: 'Transparencia',
+    description: 'Garantizamos la confiabilidad de su información financiera.',
+    icon: 'tabler:eye',
+  },
+  {
+    title: 'Cumplimiento',
+    description: 'Verificación del cumplimiento normativo y legal.',
+    icon: 'tabler:checklist',
+  },
+  {
+    title: 'Prevención',
+    description: 'Identificación temprana de riesgos y oportunidades.',
+    icon: 'tabler:shield-check',
+  },
+  {
+    title: 'Certificación',
+    description: 'Dictámenes avalados por contadores públicos certificados.',
+    icon: 'tabler:certificate',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero2 Widget ******************* -->
-
+  <!-- Hero Section -->
   <Hero2
-    tagline="Áreas Contables"
-    title="Auditoría Financiera"
-    subtitle="Proveemos asesoría integral en todo el ciclo empresarial, desde la constitución hasta procesos de fusiones, escisiones y liquidaciones, complementando con consultoría en distintas áreas jurídicas para optimizar recursos, prevenir contingencias y resolver conflictos legales."
-    actions={[
-      { variant: 'primary', text: 'Ver Más', href: '#', icon: 'tabler:square-rounded-arrow-right' },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1473188588951-666fce8e7c68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2174&q=80',
-      alt: 'A spotlight on a product. Product Details Landing Page Demo',
-    }}
-  />
-
-  <CallToAction
-    title="Coming soon"
-    subtitle="We are working on the content of these demo pages. You will see them very soon. Stay tuned Stay tuned!"
+    tagline="Transparencia y Confianza"
+    title="Auditoría <span class='text-gray-800 dark:text-gray-200'>Financiera Integral</span>"
+    subtitle="Auditorías externas e internas que garantizan la confiabilidad de su información financiera y el cumplimiento normativo. Certificamos sus estados financieros."
     actions={[
       {
         variant: 'primary',
-        text: 'Download Template',
-        href: 'https://github.com/arthelokyo/astrowind',
+        text: 'Solicitar Auditoría',
+        href: '#servicios',
+        icon: 'tabler:arrow-down',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+      alt: 'Proceso de auditoría financiera',
+    }}
+  />
+
+  <!-- Servicios Section -->
+  <CallToAction
+    id="servicios"
+    title="Servicios de Auditoría Especializada"
+    subtitle="Certificación y verificación de su información financiera con los más altos estándares:"
+    services={auditServices}
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Cotizar Auditoría',
+        href: '#contacto',
+        icon: 'tabler:file-report',
+      },
+      {
+        variant: 'secondary',
+        text: 'Investigación Fraud',
+        href: 'https://api.whatsapp.com/send/?phone=573001234567&text=Sospecha+de+fraude+financiero&type=phone_number&app_absent=0',
+        icon: 'tabler:shield-search',
+      },
+    ]}
+  />
+
+  <!-- Beneficios Section -->
+  <Content
+    isAfterContent
+    items={benefits}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+      alt: 'Auditor analizando documentos financieros',
+    }}
+  >
+    <Fragment slot="content">
+      <div class="space-y-6">
+        <h3 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+          Confianza en sus Números
+        </h3>
+        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          Nuestros auditores certificados aplican procedimientos basados en normas internacionales 
+          para garantizar la exactitud y transparencia de su información financiera. 
+          Brindamos certeza a stakeholders y facilitamos la toma de decisiones estratégicas.
+        </p>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Final CTA Section -->
+  <CallToAction
+    id="contacto"
+    title="¿Necesita Certificar sus Estados Financieros?"
+    subtitle="Obtenga una cotización personalizada para su proceso de auditoría."
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Cotización Auditoría',
+        href: 'https://api.whatsapp.com/send/?phone=573001234567&text=Necesito+cotización+para+auditoría+financiera&type=phone_number&app_absent=0',
+        icon: 'tabler:file-report',
+      },
+      {
+        variant: 'secondary',
+        text: 'Llamar Auditor',
+        href: 'tel:+573001234567',
+        icon: 'tabler:phone',
+      },
+      {
+        variant: 'secondary',
+        text: 'Descargar Checklist',
+        href: '/checklist-auditoria',
         icon: 'tabler:download',
       },
     ]}

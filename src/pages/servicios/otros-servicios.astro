@@ -1,39 +1,153 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
-  title: 'Subscription Landing Page Demo',
+  title: 'Otros Servicios - Soluciones Empresariales Integrales | CRIS Consultoría',
+  description: 'Servicios complementarios para el crecimiento y fortalecimiento de su organización: consultoría financiera, outsourcing, BI y reorganización.',
 };
+
+const otherServices = [
+  {
+    title: 'Consultoría Financiera',
+    description: 'Análisis y recomendaciones para optimización financiera.',
+    highlights: ['Análisis financiero', 'Reestructuración', 'Optimización recursos'],
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Outsourcing Contable',
+    description: 'Externalización completa del departamento contable.',
+    highlights: ['Equipo especializado', 'Tecnología avanzada', 'Reportes periódicos'],
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Business Intelligence',
+    description: 'Sistemas de inteligencia de negocios para análisis de datos.',
+    highlights: ['Dashboards interactivos', 'Análisis predictivo', 'Métricas KPI'],
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Consultoría Organizacional',
+    description: 'Mejora de procesos y estructura organizacional.',
+    highlights: ['Reingeniería procesos', 'Estructura organizacional', 'Manuales procedimientos'],
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  }
+];
+
+const benefits = [
+  {
+    title: 'Enfoque Integral',
+    description: 'Soluciones que abordan todos los aspectos de su negocio.',
+    icon: 'tabler:package',
+  },
+  {
+    title: 'Tecnología Avanzada',
+    description: 'Herramientas digitales para optimizar sus procesos.',
+    icon: 'tabler:device-desktop',
+  },
+  {
+    title: 'Expertos Multidisciplina',
+    description: 'Equipo con diversas especialidades empresariales.',
+    icon: 'tabler:users',
+  },
+  {
+    title: 'Resultados Medibles',
+    description: 'Enfoque en métricas y retorno de inversión.',
+    icon: 'tabler:chart-line',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero2 Widget ******************* -->
-
+  <!-- Hero Section -->
   <Hero2
-    tagline="Áreas Contables"
-    title="Otros Servicios"
-    subtitle="Ofrecemos soluciones integrales en facturación y libros electrónicos, mediante una plataforma avanzada que cumple con los requisitos de la SUNAT y facilita una transición eficiente hacia el sistema electrónico. Nuestro servicio especializado no solo garantiza la correcta estructura exigida, sino también la coherencia de los datos para minimizar observaciones de la Administración Tributaria. Además, brindamos soporte en Estudios Técnicos de Precios de Transferencia, asegurando cumplimiento normativo y eficiencia tributaria."
-    actions={[
-      { variant: 'primary', text: 'Ver Más', href: '#', icon: 'tabler:square-rounded-arrow-right' },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1593510987046-1f8fcfc512a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Ironic image associated with canceling a subscription. Subscription Landing Page Demo',
-    }}
-  />
-
-  <CallToAction
-    title="Coming soon"
-    subtitle="We are working on the content of these demo pages. You will see them very soon. Stay tuned Stay tuned!"
+    tagline="Soluciones Integrales"
+    title="Otros <span class='text-gray-800 dark:text-gray-200'>Servicios Especializados</span>"
+    subtitle="Servicios complementarios que fortalecen su organización: consultoría financiera, outsourcing, business intelligence y reorganización empresarial para el crecimiento sostenible."
     actions={[
       {
         variant: 'primary',
-        text: 'Download Template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        icon: 'tabler:download',
+        text: 'Explorar Servicios',
+        href: '#servicios',
+        icon: 'tabler:arrow-down',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+      alt: 'Servicios empresariales integrales',
+    }}
+  />
+
+  <!-- Servicios Section -->
+  <CallToAction
+    id="servicios"
+    title="Servicios Complementarios"
+    subtitle="Soluciones adicionales diseñadas para el crecimiento y fortalecimiento empresarial:"
+    services={otherServices}
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Consultoría Inicial',
+        href: '#contacto',
+        icon: 'tabler:briefcase',
+      },
+      {
+        variant: 'secondary',
+        text: 'Portafolio Completo',
+        href: '/servicios',
+        icon: 'tabler:list',
+      },
+    ]}
+  />
+
+  <!-- Beneficios Section -->
+  <Content
+    isAfterContent
+    items={benefits}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+      alt: 'Reunión de consultoría empresarial',
+    }}
+  >
+    <Fragment slot="content">
+      <div class="space-y-6">
+        <h3 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+          Soluciones que Transforman Negocios
+        </h3>
+        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          Complementamos nuestros servicios core con soluciones especializadas que abordan 
+          necesidades específicas de su organización. Desde transformación digital hasta 
+          reestructuración organizacional, tenemos las herramientas para su éxito.
+        </p>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Final CTA Section -->
+  <CallToAction
+    id="contacto"
+    title="¿Listo para Potenciar su Empresa?"
+    subtitle="Descubra cómo nuestros servicios complementarios pueden impulsar su crecimiento."
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Consultoría Inicial',
+        href: 'https://api.whatsapp.com/send/?phone=573001234567&text=Quiero+consultoría+inicial+para+servicios+complementarios&type=phone_number&app_absent=0',
+        icon: 'tabler:briefcase',
+      },
+      {
+        variant: 'secondary',
+        text: 'Llamar Consultor',
+        href: 'tel:+573001234567',
+        icon: 'tabler:phone',
+      },
+      {
+        variant: 'secondary',
+        text: 'Portafolio Completo',
+        href: '/portafolio-servicios',
+        icon: 'tabler:file-broken',
       },
     ]}
   />

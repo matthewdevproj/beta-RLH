@@ -1,228 +1,194 @@
 ---
 import Features2 from '~/components/widgets/Features2.astro';
-import Features3 from '~/components/widgets/Features3.astro';
 import Hero from '~/components/widgets/Hero.astro';
-import Stats from '~/components/widgets/Stats.astro';
-import Steps2 from '~/components/widgets/Steps2.astro';
+import Stats2 from '~/components/widgets/Statspersonalizadas.astro';
 import Layout from '~/layouts/PageLayout.astro';
+import Carousel from '~/components/widgets/Carousel.astro';
+import TestimonialsPersonalizadas from '~/components/widgets/TestimonialsPersonalizadas.astro';
+
+import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
-  title: 'About us',
+  title: 'Sobre Nosotros - RLH Contadores',
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
+  <!-- Hero Section -->
   <Hero
-    tagline="About us"
+    tagline="Expertos en Contabilidad y Finanzas"
     image={{
-      src: 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Caos Image',
+      src: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      style: 'transform: scale(0.9); display: block;',
+      alt: 'Oficina contable profesional',
     }}
   >
     <Fragment slot="title">
-      Elevate your online presence with our <br />
-      <span class="text-accent dark:text-white"> Beautiful Website Templates</span>
+      Soluciones contables que <span class="text-accent dark:text-white">impulsan tu negocio</span>
     </Fragment>
-
     <Fragment slot="subtitle">
-      Donec efficitur, ipsum quis congue luctus, mauris magna convallis mauris, eu auctor nisi lectus non augue. Donec
-      quis lorem non massa vulputate efficitur ac at turpis. Sed tincidunt ex a nunc convallis, et lobortis nisi tempus.
-      Suspendisse vitae nisi eget tortor luctus maximus sed non lectus.
+      En <strong><em>RLH Contadores</em></strong>, entendemos que la contabilidad es el lenguaje de los negocios. Por eso 
+      contamos con un <b>equipo profesional especializado que brinda atención personalizada</b>, ofreciendo servicios que 
+      abarcan desde <b>auditoría tributaria y consultoría en NIIF hasta planillas y asesoría legal empresarial</b>. 
+      No importa el tamaño de tu empresa, si necesitas soluciones contables, <b>nosotros las proveemos — con excelencia 
+      y precisión</b>, garantizando que cada servicio cumpla con los más altos estándares profesionales.
     </Fragment>
   </Hero>
 
-  <!-- Stats Widget ****************** -->
+  <!-- Statistics -->
+  <Stats2 class="bg-blue-900 text-gray-100" />
 
-  <Stats
-    title="Statistics about us"
-    stats={[
-      { title: 'Offices', amount: '4' },
-      { title: 'Employees', amount: '248' },
-      { title: 'Templates', amount: '12' },
-      { title: 'Awards', amount: '24' },
-    ]}
-  />
-
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    title="Our templates"
-    subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
-    columns={3}
-    isBeforeContent={true}
+  <!-- Services Section -->
+  <Features2
+    title="Nuestros Servicios Especializados"
+    subtitle="Ofrecemos soluciones integrales en contabilidad, auditoría y consultoría financiera. Nuestro equipo garantiza resultados profesionales en cada servicio — todos diseñados para optimizar tus procesos y asegurar el cumplimiento normativo."
     items={[
       {
-        title: 'Educational',
-        description:
-          'Morbi faucibus luctus quam, sit amet aliquet felis tempor id. Cras augue massa, ornare quis dignissim a, molestie vel nulla.',
-        icon: 'tabler:template',
+        title: 'Asesoría y Auditoría Tributaria',
+        description: 'Prevención de contingencias tributarias y optimización de recursos mediante planes personalizados de planificación fiscal.',
+        icon: 'tabler:chart-bar',
       },
       {
-        title: 'Interior Design',
-        description:
-          'Vivamus porttitor, tortor convallis aliquam pretium, turpis enim consectetur elit, vitae egestas purus erat ac nunc nulla.',
-        icon: 'tabler:template',
+        title: 'Servicios Contables y de Planillas',
+        description: 'Gestión contable y de planillas en modalidad InHouse u Outsourcing, con respaldo especializado y total confidencialidad.',
+        icon: 'tabler:file-invoice',
       },
       {
-        title: 'Photography',
-        description:
-          'Duis sed lectus in nisl vehicula porttitor eget quis odio. Aliquam erat volutpat. Nulla eleifend nulla id sem fermentum.',
-        icon: 'tabler:template',
+        title: 'Asesoría Legal Empresarial',
+        description: 'Acompañamiento en constitución, fusiones, escisiones y liquidaciones de empresas, junto con consultoría jurídica especializada.',
+        icon: 'tabler:scale',
+      },
+      {
+        title: 'Auditoría Financiera',
+        description: 'Evaluación integral de estados financieros para garantizar transparencia y cumplimiento normativo en todas las operaciones.',
+        icon: 'tabler:report-analytics',
+      },
+      {
+        title: 'Consultoría en NIIF',
+        description: 'Implementación y aplicación adecuada de las Normas Internacionales de Información Financiera.',
+        icon: 'tabler:certificate',
+      },
+      {
+        title: 'Capacitaciones In-House',
+        description: 'Programas de formación a medida, dictados por especialistas del sector directamente en la organización.',
+        icon: 'tabler:users-group',
       },
     ]}
-  />
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-blue-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
 
-  <!-- Features3 Widget ************** -->
-
-  <Features3
-    columns={3}
-    isAfterContent={true}
+  <!-- Values Section -->
+  <Content
+    isAfterContent
     items={[
       {
-        title: 'E-commerce',
-        description:
-          'Rutrum non odio at vehicula. Proin ipsum justo, dignissim in vehicula sit amet, dignissim id quam. Sed ac tincidunt sapien.',
-        icon: 'tabler:template',
+        title: 'Excelencia Técnica',
+        description: 'Cada servicio es ejecutado con el más alto nivel de expertise contable y financiero, asegurando precisión en cada detalle.',
+        icon: 'tabler:rosette-discount-check',
       },
       {
-        title: 'Blog',
-        description:
-          'Nullam efficitur volutpat sem sed fringilla. Suspendisse et enim eu orci volutpat laoreet ac vitae libero.',
-        icon: 'tabler:template',
+        title: 'Eficiencia Operativa',
+        description: 'Optimizamos tus procesos contables y fiscales, garantizando cumplimiento de plazos sin comprometer la calidad del servicio.',
+        icon: 'tabler:clock-star',
       },
       {
-        title: 'Business',
-        description:
-          'Morbi et elit finibus, facilisis justo ut, pharetra ipsum. Donec efficitur, ipsum quis congue luctus, mauris magna.',
-        icon: 'tabler:template',
+        title: 'Transparencia Total',
+        description: 'Mantenemos comunicación clara y honesta en cada etapa, con reportes detallados y asesoría comprensible.',
+        icon: 'tabler:book',
       },
       {
-        title: 'Branding',
-        description:
-          'Suspendisse vitae nisi eget tortor luctus maximus sed non lectus. Cras malesuada pretium placerat. Nullam venenatis dolor a ante rhoncus.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Medical',
-        description:
-          'Vestibulum malesuada lacus id nibh posuere feugiat. Nam volutpat nulla a felis ultrices, id suscipit mauris congue. In hac habitasse platea dictumst.',
-        icon: 'tabler:template',
-      },
-      {
-        title: 'Fashion Design',
-        description:
-          'Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus.',
-        icon: 'tabler:template',
+        title: 'Confidencialidad Garantizada',
+        description: 'Tu información financiera está protegida con los más altos estándares de seguridad y confidencialidad profesional.',
+        icon: 'tabler:shield-lock',
       },
     ]}
     image={{
-      src: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80',
-      alt: 'Colorful Image',
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      alt: 'Equipo de trabajo contable',
     }}
-  />
+  >
+    <Fragment slot="content">
+      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">Nuestros Valores</h3>
+      <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+        En RLH Contadores, nos regimos por principios que garantizan la calidad y confiabilidad de nuestros servicios, 
+        construyendo relaciones duraderas basadas en la confianza mutua.
+      </p>
+    </Fragment>
+  </Content>
 
-  <!-- Steps2 Widget ****************** -->
+  <!-- Experience Section -->
+  <section class="text-center my-10 w-full items-center">
+    <Carousel
+      title="Nuestra Experiencia en Acción"
+      images={[
+        'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+        'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+        'https://images.unsplash.com/photo-1551834310-08f8c0671aec?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+        'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+        'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+        'https://images.unsplash.com/photo-1551834310-08f8c0671aec?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80',
+      ]}
+    />
+  </section>
 
-  <Steps2
-    title="Our values"
-    subtitle="Maecenas eu tellus eget est scelerisque lacinia et a diam. Aliquam velit lorem, vehicula id fermentum et, rhoncus et purus. Nulla facilisi. Vestibulum malesuada lacus."
-    items={[
-      {
-        title: 'Customer-centric approach',
-        description:
-          'Donec id nibh neque. Quisque et fermentum tortor. Fusce vitae dolor a mauris dignissim commodo. Ut eleifend luctus condimentum.',
-      },
-      {
-        title: 'Constant Improvement',
-        description:
-          'Phasellus laoreet fermentum venenatis. Vivamus dapibus pulvinar arcu eget mattis. Fusce eget mauris leo.',
-      },
-      {
-        title: 'Ethical Practices',
-        description:
-          'Vestibulum imperdiet libero et lectus molestie, et maximus augue porta. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
-      },
-    ]}
-  />
+   <!-- 💬 Testimonials Section - Fondo que inspira confianza -->
+  <TestimonialsPersonalizadas
+  title="Lo que Dicen Nuestros Clientes"
+  subtitle="Empresas que han confiado en nuestra experiencia contable y tributaria"
+  tagline="TESTIMONIOS VERIFICADOS"
+  testimonials={[
+    {
+      testimonial: `El equipo de RLH transformó nuestra gestión contable completamente. Su asesoría tributaria nos ayudó a optimizar impuestos y sus procesos automatizados nos ahorran más de 20 horas mensuales en tareas administrativas.`,
+      name: 'María López',
+      job: 'Directora Financiera - RetailPro',
+      rating: 5
+    },
+    {
+      testimonial: `Como startup, necesitábamos una consultoría que entendiera nuestro crecimiento rápido. RLH no solo nos ayudó con la planificación fiscal, sino que implementó sistemas contables que escalan con nosotros. Excelente servicio post-venta.`,
+      name: 'Carlos Mendoza',
+      job: 'Co-Founder - TechGrowth',
+      rating: 5
+    },
+    {
+      testimonial: `Llevamos 3 años trabajando con RLH y la diferencia es notable. Su auditoría financiera anual nos da total transparencia y su asesoría legal nos ha protegido en varias negociaciones importantes. Confianza 100%.`,
+      name: 'Ana Rodríguez',
+      job: 'Gerente General - Constructora Norte',
+      rating: 5
+    },
+  ]}
+  classes={{
+    container: 'testimonials-corporate'
+  }}
+/>
 
-  <!-- Steps2 Widget ****************** -->
-
-  <Steps2
-    title="Achievements"
-    subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sagittis, quam nec venenatis lobortis, mi risus tempus nulla, sed porttitor est nibh at nulla."
-    isReversed={true}
-    callToAction={{
-      text: 'See more',
-      href: '/',
-    }}
-    items={[
-      {
-        title: 'Global reach',
-        description: 'Nam malesuada urna in enim imperdiet tincidunt. Phasellus non tincidunt nisi, at elementum mi.',
-        icon: 'tabler:globe',
-      },
-      {
-        title: 'Positive customer feedback and reviews',
-        description:
-          'Cras semper nulla leo, eget laoreet erat cursus sed. Praesent faucibus massa in purus iaculis dictum.',
-        icon: 'tabler:message-star',
-      },
-      {
-        title: 'Awards and recognition as industry experts',
-        description:
-          'Phasellus lacinia cursus velit, eu malesuada magna pretium eu. Etiam aliquet tellus purus, blandit lobortis ex rhoncus vitae.',
-        icon: 'tabler:award',
-      },
-    ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
+  <!-- Team Expertise Section -->
   <Features2
-    title="Our locations"
-    tagline="Find us"
-    columns={4}
+    title="Nuestras Certificaciones y Especialidades"
+    subtitle="Contamos con profesionales certificados en las principales áreas de la contabilidad y finanzas, asegurando expertise de primer nivel en cada servicio."
+    columns={3}
     items={[
       {
-        title: 'EE.UU',
-        description: '1234 Lorem Ipsum St, 12345, Miami',
+        title: 'Contadores Públicos Certificados',
+        description: 'Profesionales con certificaciones nacionales e internacionales en contabilidad y auditoría.',
+        icon: 'tabler:user-check',
       },
       {
-        title: 'Spain',
-        description: '5678 Lorem Ipsum St, 56789, Madrid',
+        title: 'Especialistas en NIIF',
+        description: 'Expertos certificados en Normas Internacionales de Información Financiera.',
+        icon: 'tabler:certificate-2',
       },
       {
-        title: 'Australia',
-        description: '9012 Lorem Ipsum St, 90123, Sydney',
-      },
-      {
-        title: 'Brazil',
-        description: '3456 Lorem Ipsum St, 34567, São Paulo',
+        title: 'Auditores Tributarios',
+        description: 'Especialistas en legislación fiscal y prevención de contingencias tributarias.',
+        icon: 'tabler:zoom-check',
       },
     ]}
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="Technical Support"
-    tagline="Contact us"
-    columns={2}
-    items={[
-      {
-        title: 'Chat with us',
-        description:
-          'Integer luctus laoreet libero, auctor varius purus rutrum sit amet. Ut nec molestie nisi, quis eleifend mi.',
-        icon: 'tabler:messages',
-      },
-      {
-        title: 'Call us',
-        description:
-          'Mauris faucibus finibus orci, in posuere elit viverra non. In hac habitasse platea dictumst. Cras lobortis metus a hendrerit congue.',
-        icon: 'tabler:headset',
-      },
-    ]}
-  />
+  >
+    <Fragment slot="bg">
+      <div class="absolute inset-0 bg-gray-50 dark:bg-transparent"></div>
+    </Fragment>
+  </Features2>
 </Layout>

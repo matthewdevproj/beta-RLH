@@ -4,21 +4,21 @@ export const headerData = {
   links: [
     {
       text: 'Inicio',
-          href: getPermalink('/.'),
+      href: getPermalink('/.'),
     },
     {
       text: 'Nosotros',
       links: [
         {
-          text: 'Contacto',
-          href: getPermalink('/contact'),
+          text: 'Nuestra Empresa',
+          href: getPermalink('/about'),
         },
         {
-          text: 'Terms',
+          text: 'Términos de Servicio',
           href: getPermalink('/terms'),
         },
         {
-          text: 'Privacy policy',
+          text: 'Política de Privacidad',
           href: getPermalink('/privacy'),
         },
       ],
@@ -56,77 +56,59 @@ export const headerData = {
         },
       ],
     },
-    
     {
       text: 'Boletines',
-          href: getBlogPermalink(),
-    },
-    {
-      text: 'Contáctanos',
-          href: getPermalink('/contact'),
+      href: getBlogPermalink(),
     },
   ],
+
+  actions: [{ text: 'Contáctanos', href: '/#contact' }],
 };
 
 export const footerData = {
   links: [
     {
-      title: 'Product',
+      title: 'Nuestros Servicios',
       links: [
-        { text: 'Features', href: '#' },
-        { text: 'Security', href: '#' },
-        { text: 'Team', href: '#' },
-        { text: 'Enterprise', href: '#' },
-        { text: 'Customer stories', href: '#' },
-        { text: 'Pricing', href: '#' },
-        { text: 'Resources', href: '#' },
+        { text: 'Asesoría y Auditoría Tributaria', href: getPermalink('/servicios/asesoria-tributaria') },
+        { text: 'Servicios Contables y de Planillas', href: getPermalink('/servicios/servicios-contables') },
+        { text: 'Asesoría Legal', href: getPermalink('/servicios/asesoria-legal') },
+        { text: 'Auditoría Financiera', href: getPermalink('/servicios/auditoria-financiera') },
+        { text: 'Consultoría en NIIF', href: getPermalink('/servicios/consulta-niif') },
+        { text: 'Capacitaciones In-House', href: getPermalink('/servicios/capacitaciones-in-house') },
+        { text: 'Otros Servicios', href: getPermalink('/servicios/otros-servicios') },
       ],
     },
     {
-      title: 'Platform',
+      title: 'Empresa',
       links: [
-        { text: 'Developer API', href: '#' },
-        { text: 'Partners', href: '#' },
-        { text: 'Atom', href: '#' },
-        { text: 'Electron', href: '#' },
-        { text: 'AstroWind Desktop', href: '#' },
+        { text: 'Nosotros', href: getPermalink('/about') },
+        { text: 'Contacto', href: getPermalink('/contact') },
+        { text: 'Boletines', href: getBlogPermalink() },
       ],
     },
     {
-      title: 'Support',
+      title: 'Soporte',
       links: [
-        { text: 'Docs', href: '#' },
-        { text: 'Community Forum', href: '#' },
-        { text: 'Professional Services', href: '#' },
-        { text: 'Skills', href: '#' },
-        { text: 'Status', href: '#' },
+        { text: 'Preguntas Frecuentes', href: getPermalink('/#faqs') },
+        { text: 'Solicitar Cotización', href: getPermalink('#contact') },
       ],
     },
     {
-      title: 'Company',
+      title: 'Legal',
       links: [
-        { text: 'About', href: '#' },
-        { text: 'Blog', href: '#' },
-        { text: 'Careers', href: '#' },
-        { text: 'Press', href: '#' },
-        { text: 'Inclusion', href: '#' },
-        { text: 'Social Impact', href: '#' },
-        { text: 'Shop', href: '#' },
+        { text: 'Términos de Servicio', href: getPermalink('/terms') },
+        { text: 'Política de Privacidad', href: getPermalink('/privacy') },
       ],
     },
   ],
   secondaryLinks: [
-    { text: 'Terms', href: getPermalink('/terms') },
-    { text: 'Privacy Policy', href: getPermalink('/privacy') },
+    { text: 'Términos de Servicio', href: getPermalink('/terms') },
+    { text: 'Política de Privacidad', href: getPermalink('/privacy') },
   ],
-  socialLinks: [
-    { ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Facebook', icon: 'tabler:brand-facebook', href: '#' },
-    { ariaLabel: 'RSS', icon: 'tabler:rss', href: getAsset('/rss.xml') },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/arthelokyo/astrowind' },
-  ],
+  
   footNote: `
-    Made by <a class="text-blue-600 underline dark:text-muted"  "> Arthelokyo</a> · All rights reserved.
+    © ${new Date().getFullYear()} <strong>RLH Consultoria & Asesoria Contable </strong>. Todos los derechos reservados.  
+    Diseñado y desarrollado con ❤️ por <a class="text-blue-600 underline dark:text-muted" href="#">Ch'askode</a>.
   `,
 };

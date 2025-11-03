@@ -1,39 +1,153 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
-  title: 'Click-through Landing Page Demo',
+  title: 'Asesoría Legal - Servicios Jurídicos Integrales | CRIS Consultoría',
+  description: 'Asesoría legal especializada en derecho corporativo, contractual, laboral y comercial para empresas y particulares. Protección legal integral.',
 };
+
+const legalServices = [
+  {
+    title: 'Derecho Corporativo',
+    description: 'Constitución de empresas, reformas estatutarias y gobierno corporativo.',
+    highlights: ['Constitución de SAS', 'Juntas directivas', 'Asambleas de accionistas'],
+    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Contratos y Convenios',
+    description: 'Elaboración y revisión de contratos comerciales, laborales y civiles.',
+    highlights: ['Contratos comerciales', 'Convenios de confidencialidad', 'Acuerdos de servicios'],
+    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Derecho Laboral',
+    description: 'Asesoría en nómina, contratación y terminación de relaciones laborales.',
+    highlights: ['Manual de funciones', 'Liquidaciones', 'Procesos disciplinarios'],
+    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Propiedad Intelectual',
+    description: 'Registro de marcas, patentes y protección de derechos de autor.',
+    highlights: ['Registro de marcas', 'Derechos de autor', 'Patentes y modelos'],
+    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  }
+];
+
+const benefits = [
+  {
+    title: 'Expertos Legales',
+    description: 'Abogados especializados en diferentes áreas del derecho empresarial.',
+    icon: 'tabler:scale',
+  },
+  {
+    title: 'Prevención de Riesgos',
+    description: 'Identificamos y mitigamos riesgos legales antes de que ocurran.',
+    icon: 'tabler:shield-check',
+  },
+  {
+    title: 'Respuesta Rápida',
+    description: 'Atención inmediata para situaciones legales urgentes.',
+    icon: 'tabler:clock',
+  },
+  {
+    title: 'Costos Predictivos',
+    description: 'Honorarios transparentes sin sorpresas.',
+    icon: 'tabler:coin',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero2 Widget ******************* -->
-
+  <!-- Hero Section -->
   <Hero2
-    tagline="Áreas Contables"
-    title="Asesoría Legal"
-    subtitle="Ofrecemos asesoría integral que abarca desde la constitución de empresas hasta procesos de fusiones, escisiones y liquidaciones, complementada con consultoría en diversas áreas jurídicas para optimizar recursos, prevenir contingencias y resolver asuntos legales."
-    actions={[
-      { variant: 'primary', text: 'Ver Más', href: '#', icon: 'tabler:square-rounded-arrow-right' },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Click-through Landing Page Hero Image',
-    }}
-  />
-
-  <CallToAction
-    title="Coming soon"
-    subtitle="We are working on the content of these demo pages. You will see them very soon. Stay tuned Stay tuned!"
+    tagline="Protección Legal Integral"
+    title="Asesoría <span class='text-gray-800 dark:text-gray-200'>Legal Empresarial</span>"
+    subtitle="Servicios jurídicos especializados en derecho corporativo, contractual y laboral. Protegemos sus intereses y garantizamos el cumplimiento normativo para el crecimiento seguro de su empresa."
     actions={[
       {
         variant: 'primary',
-        text: 'Download Template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        icon: 'tabler:download',
+        text: 'Consultar Ahora',
+        href: '#servicios',
+        icon: 'tabler:arrow-down',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+      alt: 'Asesoría legal profesional',
+    }}
+  />
+
+  <!-- Servicios Section -->
+  <CallToAction
+    id="servicios"
+    title="Servicios Jurídicos Especializados"
+    subtitle="Soluciones legales integrales para proteger y hacer crecer su empresa:"
+    services={legalServices}
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Consulta Inicial',
+        href: '#contacto',
+        icon: 'tabler:calendar',
+      },
+      {
+        variant: 'secondary',
+        text: 'Emergencia Legal',
+        href: 'https://api.whatsapp.com/send/?phone=573001234567&text=Necesito+asesoría+legal+urgente&type=phone_number&app_absent=0',
+        icon: 'tabler:alert-triangle',
+      },
+    ]}
+  />
+
+  <!-- Beneficios Section -->
+  <Content
+    isAfterContent
+    items={benefits}
+    image={{
+      src: 'https://images.unsplash.com/photo-1565689228866-1d7db786613e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+      alt: 'Abogados trabajando en equipo',
+    }}
+  >
+    <Fragment slot="content">
+      <div class="space-y-6">
+        <h3 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+          ¿Por qué Elegir Nuestra Asesoría Legal?
+        </h3>
+        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          Contamos con un equipo multidisciplinario de abogados especializados en diferentes áreas 
+          del derecho empresarial. Ofrecemos soluciones legales preventivas y correctivas que 
+          protegen su negocio y facilitan su crecimiento.
+        </p>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Final CTA Section -->
+  <CallToAction
+    id="contacto"
+    title="¿Necesita Asesoría Legal Especializada?"
+    subtitle="Proteja su empresa y evite riesgos legales. Agenda una consulta inicial sin costo."
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Consulta Gratuita',
+        href: 'https://api.whatsapp.com/send/?phone=573001234567&text=Quiero+una+consulta+legal+gratuita&type=phone_number&app_absent=0',
+        icon: 'tabler:scale',
+      },
+      {
+        variant: 'secondary',
+        text: 'Llamar Ahora',
+        href: 'tel:+573001234567',
+        icon: 'tabler:phone',
+      },
+      {
+        variant: 'secondary',
+        text: 'Ver Casos de Éxito',
+        href: '/casos-exito',
+        icon: 'tabler:briefcase',
       },
     ]}
   />

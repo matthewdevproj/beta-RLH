@@ -1,38 +1,152 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
-  title: 'Pre-Launch Landing Page',
+  title: 'Consulta NIIF - Implementación de Normas Internacionales | CRIS Consultoría',
+  description: 'Asesoría especializada en adopción e implementación de Normas Internacionales de Información Financiera. Transición NIIF PYMES y plenas.',
 };
+
+const niifServices = [
+  {
+    title: 'Diagnóstico NIIF',
+    description: 'Evaluación del estado actual y plan de implementación.',
+    highlights: ['Brechas normativas', 'Plan de transición', 'Cronograma implementación'],
+    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Implementación Completa',
+    description: 'Acompañamiento en todo el proceso de adopción NIIF.',
+    highlights: ['Políticas contables', 'Manuales procedimientos', 'Capacitación equipo'],
+    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'NIIF PYMES',
+    description: 'Implementación específica para pequeñas y medianas empresas.',
+    highlights: ['Normas simplificadas', 'Reportes PYME', 'Obligaciones reducidas'],
+    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'NIIF Plenas',
+    description: 'Implementación de NIIF completas para grandes empresas.',
+    highlights: ['Normas completas', 'Reportes consolidados', 'Revelaciones extensas'],
+    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  }
+];
+
+const benefits = [
+  {
+    title: 'Expertos NIIF',
+    description: 'Consultores certificados en normas internacionales.',
+    icon: 'tabler:certificate',
+  },
+  {
+    title: 'Transición Gradual',
+    description: 'Implementación por fases para minimizar impactos.',
+    icon: 'tabler:trending-up',
+  },
+  {
+    title: 'Soporte Continuo',
+    description: 'Acompañamiento durante todo el proceso de adopción.',
+    icon: 'tabler:headset',
+  },
+  {
+    title: 'Actualización Permanente',
+    description: 'Seguimiento a modificaciones normativas NIIF.',
+    icon: 'tabler:refresh',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero2 Widget ******************* -->
-
+  <!-- Hero Section -->
   <Hero2
-    tagline="Áreas Contables"
-    title="Consultoría en NIIF"
-    subtitle="Entendemos que la adecuada adopción y aplicación de las Normas Internacionales de Información Financiera (NIIF) es clave para impulsar el crecimiento y garantizar la transparencia financiera de tu empresa. Contamos con un equipo de contadores, tributaristas y abogados altamente calificados, preparados para brindarte soluciones especializadas en NIIF."
-    actions={[
-      { variant: 'primary', text: 'Ver Más', href: '#', icon: 'tabler:square-rounded-arrow-right' },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1558803116-c1b4ac867b31?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80',
-      alt: 'Store with a Coming Soon sign. Pre-launch Landing Page',
-    }}
-  />
-
-  <CallToAction
-    title="Coming soon"
-    subtitle="We are working on the content of these demo pages. You will see them very soon. Stay tuned Stay tuned!"
+    tagline="Estándares Internacionales"
+    title="Consulta e Implementación <span class='text-gray-800 dark:text-gray-200'>NIIF</span>"
+    subtitle="Asesoría especializada en la adopción e implementación de Normas Internacionales de Información Financiera. Garantizamos una transición ordenada y eficiente."
     actions={[
       {
         variant: 'primary',
-        text: 'Download Template',
-        href: 'https://github.com/arthelokyo/astrowind',
+        text: 'Diagnóstico NIIF',
+        href: '#servicios',
+        icon: 'tabler:arrow-down',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+      alt: 'Implementación de normas NIIF',
+    }}
+  />
+
+  <!-- Servicios Section -->
+  <CallToAction
+    id="servicios"
+    title="Servicios Especializados NIIF"
+    subtitle="Transición y implementación de normas internacionales de información financiera:"
+    services={niifServices}
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Diagnóstico Gratuito',
+        href: '#contacto',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        variant: 'secondary',
+        text: 'Kit Implementación',
+        href: '/recursos-niif',
+        icon: 'tabler:download',
+      },
+    ]}
+  />
+
+  <!-- Beneficios Section -->
+  <Content
+    isAfterContent
+    items={benefits}
+    image={{
+      src: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+      alt: 'Análisis de estados financieros NIIF',
+    }}
+  >
+    <Fragment slot="content">
+      <div class="space-y-6">
+        <h3 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+          Transición Exitosa a NIIF
+        </h3>
+        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          Facilitamos su transición a las Normas Internacionales de Información Financiera con 
+          metodologías probadas y expertos certificados. Garantizamos el cumplimiento normativo 
+          mientras mejoramos la calidad y transparencia de su información financiera.
+        </p>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Final CTA Section -->
+  <CallToAction
+    id="contacto"
+    title="¿Preparado para la Transición NIIF?"
+    subtitle="Obtenga un diagnóstico gratuito de su nivel de preparación para NIIF."
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Diagnóstico Gratis',
+        href: 'https://api.whatsapp.com/send/?phone=573001234567&text=Quiero+diagnóstico+NIIF+gratuito&type=phone_number&app_absent=0',
+        icon: 'tabler:clipboard-check',
+      },
+      {
+        variant: 'secondary',
+        text: 'Llamar Experto NIIF',
+        href: 'tel:+573001234567',
+        icon: 'tabler:phone',
+      },
+      {
+        variant: 'secondary',
+        text: 'Guía NIIF PYMES',
+        href: '/guia-niif-pymes',
         icon: 'tabler:download',
       },
     ]}

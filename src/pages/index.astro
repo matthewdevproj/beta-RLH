@@ -1,271 +1,185 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
+import Hero3 from '~/components/widgets/Hero3.astro';
 import Features from '~/components/widgets/Features.astro';
 import Features2 from '~/components/widgets/Features2.astro';
 import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import BrandsPersonalizadas from '~/components/widgets/BrandsPersonalizadas.astro';
-import TestimonialsPersonalizadas from '~/components/widgets/TestimonialsPersonalizadas.astro';
 import Statspersonalizadas from '~/components/widgets/Statspersonalizadas.astro';
 import NotePersonalizada from '~/components/widgets/NotePersonalizada.astro';
-
-
+import ContactForm from '~/components/widgets/ContactForm.astro';
+import WhatsappButton from '~/components/widgets/WhatsappButton.astro';
+import TestimonialsPersonalizadas from '~/components/widgets/TestimonialsPersonalizadas.astro';
 
 const metadata = {
-  title: 'RLH Consultora & Asesoria Contable',
+  title: 'RLH Consultora & Asesoría Contable',
   ignoreTitleTemplate: true,
 };
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero Widget ******************* -->
-
-  <Hero>
+  <!-- 🎯 Hero Section - Colores corporativos azul profesional -->
+  <Hero3>
     <Fragment slot="title">
-      CONOCE NUESTROS <span class="hidden xl:inline">SERVICIOS DE GESTIÓN</span>
-      <span class="text-accent dark:text-white"> CONTABLE</span> Y 
-      <span class="text-accent dark:text-white">TRIBUTARIA</span> 
+      DESCUBRE NUESTROS <span class="hidden xl:inline-block">SERVICIOS</span>
+      <span class="text-blue-300 font-black"> CONTABLES</span> Y
+      <span class="text-blue-300 font-black"> TRIBUTARIOS</span> ESPECIALIZADOS
     </Fragment>
 
     <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-        <span class="font-semibold">En RLH</span> te ayudamos a optimizar tus procesos contables y evitar riesgos fiscales. Ofrecemos soluciones que previenen riesgos y optimizan procesos.
+      <span class="text-lg md:text-xl lg:text-2xl text-blue-100 leading-relaxed">
+        <span class="font-bold text-white">En RLH Consultora</span> nos especializamos en soluciones integrales 
+        de asesoría contable, tributaria y legal para empresas. Nuestro compromiso es ofrecer 
+        <span class="font-semibold text-blue-200"> resultados confiables, eficientes y duraderos</span> que superen 
+        sus expectativas.
       </span>
     </Fragment>
-  </Hero>
+  </Hero3>
 
+  <!-- 📝 Note Section - Azul corporativo con toques verdes -->
+  <NotePersonalizada
+    title="RLH Consultora"
+    description="Contáctate con nuestro equipo de especialistas en contabilidad, auditoría y asesoría legal. Ofrecemos soluciones confiables y de alta calidad que generan eficiencia y tranquilidad."
+  />
 
-  <!-- Nota Widget  -->
-
-  <NotePersonalizada title="RLH" description="Contactate con nuestro equipo de especialistas en contabilidad, auditoría y asesoría legal, enfocados en ofrecer soluciones que generan confianza y eficiencia." />
-  
-  <!-- Servicios Widget  -->
-
+  <!-- 💼 Services Section - Colores profesionales y confiables -->
   <Features2
-    title="CONOCE NUESTROS SERVICIOS DE GESTIÓN CONTABLE Y TRIBUTARIA"
-    subtitle="Nos avalan expertos que te apoyaran en prevenir riesgos y hacer más eficientes tus procesos. Conoce todo lo que podemos hacer para ti"
+    title="NUESTROS SERVICIOS ESPECIALIZADOS"
+    id="services"
+    subtitle="Brindamos soluciones completas en consultoría contable, tributaria y legal — combinando experiencia técnica con un enfoque personalizado."
     columns={3}
     items={[
       {
         title: 'Asesoría y Auditoría Tributaria',
-        description:
-          'Prevención de contingencias tributarias y optimización de recursos mediante planes personalizados de planificación fiscal.',
-        icon: 'tabler:school',
+        description: 'Prevención de contingencias tributarias y optimización de recursos mediante planes personalizados de planificación fiscal.',
+        icon: 'tabler:chart-pie',
       },
       {
         title: 'Servicios Contables y de Planillas',
-        description:
-          'Gestión contable y de planillas en modalidad InHouse u Outsourcing, con respaldo especializado y total confidencialidad.',
-        icon: 'tabler:home-star',
+        description: 'Gestión contable y de planillas en modalidad InHouse u Outsourcing, con respaldo especializado y total confidencialidad.',
+        icon: 'tabler:file-invoice',
       },
       {
-        title: 'Asesoría Legal',
-        description:
-          'Acompañamiento en constitución, fusiones, escisiones y liquidaciones de empresas, junto con consultoría jurídica para optimizar recursos y prevenir riesgos legales.',      
-        icon: 'tabler:photo',
+        title: 'Asesoría Legal Empresarial',
+        description: 'Acompañamiento en constitución, fusiones, escisiones y liquidaciones de empresas, junto con consultoría jurídica especializada.',
+        icon: 'tabler:scale',
       },
       {
         title: 'Auditoría Financiera',
-        description:
-          'Cobertura en todo el ciclo empresarial, incluyendo constitución, fusiones, escisiones y liquidaciones, más consultoría jurídica para resolver contingencias legales.',
-        icon: 'tabler:shopping-cart',
+        description: 'Evaluación integral de estados financieros para garantizar transparencia y cumplimiento normativo en todas las operaciones.',
+        icon: 'tabler:report-analytics',
       },
       {
         title: 'Consultoría en NIIF',
-        description:
-          'Implementación y aplicación adecuada de las NIIF, con un equipo experto en contabilidad, tributación y derecho financiero.',
-        icon: 'tabler:article',
+        description: 'Implementación y aplicación adecuada de las Normas Internacionales de Información Financiera.',
+        icon: 'tabler:book',
       },
       {
         title: 'Capacitaciones In-House',
-        description:
-          'Programas de formación a medida, dictados por especialistas del sector directamente en la organización.',
-        icon: 'tabler:building-store',
+        description: 'Programas de formación a medida, dictados por especialistas del sector directamente en la organización.',
+        icon: 'tabler:users',
       },
       {
-        title: 'Otros Servicios',
-        description:
-          'Plataforma para facturación y libros electrónicos alineada con SUNAT, revisión de datos para evitar observaciones y soporte en estudios de precios de transferencia.',
-        icon: 'tabler:arrow-big-up-lines',
-      },  
+        title: 'Otros Servicios Especializados',
+        description: 'Plataforma para facturación electrónica, revisión de datos contables y soporte en estudios de precios de transferencia.',
+        icon: 'tabler:settings',
+      },
     ]}
   />
 
-  <!-- Boletines Widget  -->
-
+  <!-- 📰 Blog Section - Azul profesional -->
   <BlogLatestPosts
-    title="Novedades normativas"
-    information={`Conoce las disposiciones, actualizaciones y cambios normativos más relevantes. 
-              `}
+    title="Novedades Normativas"
+    information="Mantente informado sobre las disposiciones, actualizaciones y cambios normativos más relevantes en materia contable y tributaria."
   />
 
-  <!-- Stats Personalizadas -->
-
+  <!-- 📊 Stats Section - Gradiente corporativo -->
   <Statspersonalizadas />
 
-  <!-- FAQs Widget  -->
-  
+  <!-- ❓ FAQs Section - Colores de confianza y claridad -->
   <Features
     id="FAQS"
-    tagline="FAQs"
+    tagline="Preguntas Frecuentes"
     title="Preguntas Frecuentes"
-    subtitle="Explora las siguientes preguntas para descubrir las potentes funcionalidades que ofrece AstroWind y cómo pueden impulsar tu experiencia en el desarrollo web."
+    subtitle="Encuentra respuestas a las consultas más comunes sobre nuestros servicios, plazos y cobertura."
     items={[
-      
-    {
-      title: '¿Qué servicios ofrece RLH?',
-      description:
-        'RLH brinda soluciones integrales en contabilidad, auditoría, tributación, asesoría legal y consultoría en NIIF, adaptadas a las necesidades de cada empresa.',
-      icon: 'tabler:brand-tailwind',
-
-    },
-    {
-      title: '¿RLH atiende a empresas de todos los tamaños?',
-      description:
-        'Sí, nuestro equipo está preparado para brindar servicios tanto a pequeñas, medianas como grandes empresas, asegurando un enfoque personalizado para cada cliente.',
-      icon: 'tabler:components',
-
-    },
-    {
-      title: '¿Cómo garantiza RLH el cumplimiento normativo?',
-      description:
-        'A través de auditorías periódicas, revisión de procesos contables y tributarios, y asesoría legal constante, aseguramos que la empresa cumpla con todas las regulaciones vigentes.',
-      icon: 'tabler:list-check',
-
-    },
-    {
-      title: '¿Qué tan rápido puedo implementar los servicios?',
-      description:
-        'Dependiendo del servicio, muchos procesos pueden iniciarse de inmediato tras la contratación, y nuestro equipo acompaña a la empresa en cada etapa para asegurar una transición eficiente.',
-      icon: 'tabler:arrows-right-left',    
-
-    },
-    {
-      title: '¿RLH ofrece soporte o asesoría continua?',
-      description:
-        'Sí, nuestros clientes reciben atención continua y asesoría personalizada para resolver dudas, optimizar procesos y tomar decisiones basadas en información confiable.',
-      icon: 'tabler:brand-tailwind',
-
-    },
-    {
-      title: '¿Se pueden personalizar los servicios según la empresa?',
-      description:
-        'Absolutamente. RLH adapta sus servicios a las necesidades específicas de cada cliente, garantizando soluciones a medida que maximicen eficiencia y cumplimiento.',
-      icon: 'tabler:bulb',
-
-    },
+      {
+        title: '¿Qué servicios ofrece RLH Consultora?',
+        description: 'Brindamos soluciones integrales en contabilidad, auditoría, tributación, asesoría legal y consultoría en NIIF, adaptadas a las necesidades de cada empresa.',
+        icon: 'tabler:info-circle',
+      },
+      {
+        title: '¿Atienden a empresas de todos los tamaños?',
+        description: 'Sí, nuestro equipo está preparado para brindar servicios tanto a pequeñas, medianas como grandes empresas, asegurando un enfoque personalizado para cada cliente.',
+        icon: 'tabler:building',
+      },
+      {
+        title: '¿Cómo garantizan el cumplimiento normativo?',
+        description: 'A través de auditorías periódicas, revisión de procesos contables y tributarios, y asesoría legal constante, aseguramos que la empresa cumpla con todas las regulaciones vigentes.',
+        icon: 'tabler:shield-check',
+      },
+      {
+        title: '¿Qué áreas geográficas cubren?',
+        description: 'Ofrecemos nuestros servicios a nivel nacional, con capacidad de atención presencial y virtual según las necesidades del cliente.',
+        icon: 'tabler:map-pin',
+      },
+      {
+        title: '¿Ofrecen soporte continuo?',
+        description: 'Sí, nuestros clientes reciben atención continua y asesoría personalizada para resolver dudas, optimizar procesos y tomar decisiones basadas en información confiable.',
+        icon: 'tabler:phone',
+      },
+      {
+        title: '¿Se pueden personalizar los servicios?',
+        description: 'Absolutamente. RLH adapta sus servicios a las necesidades específicas de cada cliente, garantizando soluciones a medida que maximicen eficiencia y cumplimiento.',
+        icon: 'tabler:settings',
+      },
     ]}
   />
 
-  <!-- Brands Personalizadas ******************* -->
-
-
+  <!-- 🏢 Clients Section - Fondo sutil profesional -->
   <BrandsPersonalizadas
-    title="Empresas que confían en nosotros"
-    subtitle="Estas son algunas de las compañías y marcas que han elegido nuestras soluciones contables y tributarias para impulsar su crecimiento."
-    icons={[]}
+    title="Empresas que Confían en Nosotros"
+    subtitle="Compañías y marcas que han elegido RLH Consultora para optimizar sus procesos contables y tributarios."
     images={[
       {
         src: 'https://cdn.pixabay.com/photo/2015/05/26/09/37/paypal-784404_1280.png',
-        alt: 'Paypal',
+        alt: 'Empresa Contable 1',
       },
       {
         src: 'https://cdn.pixabay.com/photo/2021/12/06/13/48/visa-6850402_1280.png',
-        alt: 'Visa',
+        alt: 'Empresa Contable 2',
       },
       {
         src: 'https://cdn.pixabay.com/photo/2013/10/01/10/29/ebay-189064_1280.png',
-        alt: 'Ebay',
+        alt: 'Empresa Contable 3',
       },
-
       {
         src: 'https://cdn.pixabay.com/photo/2015/04/13/17/45/icon-720944_1280.png',
-        alt: 'Youtube',
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2013/02/12/09/07/microsoft-80658_1280.png',
-        alt: 'Microsoft',
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2015/04/23/17/41/node-js-736399_1280.png',
-        alt: 'Node JS',
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2015/10/31/12/54/google-1015751_1280.png',
-        alt: 'Google',
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2021/12/06/13/45/meta-6850393_1280.png',
-        alt: 'Meta',
-      },
-      {
-        src: 'https://cdn.pixabay.com/photo/2013/01/29/22/53/yahoo-76684_1280.png',
-        alt: 'Yahoo',
+        alt: 'Empresa Contable 4',
       },
     ]}
   />
 
-  <!-- Testimonials Personalizadas ******************* -->
+ 
 
-
-<TestimonialsPersonalizadas
-  title="Lo que dicen nuestros clientes"
-  testimonials={[
-    {
-      testimonial: `El equipo de RLH nos ha brindado un servicio excepcional en gestión contable y tributaria. Su asesoría ha optimizado nuestros procesos y nos ha dado tranquilidad.`,
-      name: 'María López',
-      job: 'CEO - Empresa XYZ',
-      image: {
-        src: 'https://images.unsplash.com/photo-1618835962148-cf177563c6c0?ixlib=rb-4.0.3&auto=format&fit=crop&w=930&q=80',
-        alt: 'María López',
-      },
-    },
-    {
-      testimonial: `Gracias a RLH nuestra empresa cumple con todas las normativas y hemos logrado mejorar nuestra eficiencia interna. Su equipo es confiable y siempre está disponible.`,
-      name: 'Carlos Pérez',
-      job: 'Gerente Financiero - Empresa ABC',
-      image: {
-        src: 'https://images.unsplash.com/photo-1561406636-b80293969660?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80',
-        alt: 'Carlos Pérez',
-      },
-    },
-    {
-      testimonial: `La atención personalizada y profesionalismo de RLH nos ha permitido enfocarnos en nuestro crecimiento sin preocuparnos por los aspectos contables y legales.`,
-      name: 'Ana Torres',
-      job: 'Fundadora - Startup LMN',
-      image: {
-        src: 'https://images.unsplash.com/photo-1545167622-3a6ac756afa4?ixlib=rb-4.0.3&auto=format&fit=crop&w=824&q=80',
-        alt: 'Ana Torres',
-      },
-    },
-    {
-      testimonial: `RLH convirtió procesos complejos en soluciones claras y efectivas. Su equipo contable nos da total confianza en cada cierre financiero.`,
-      name: 'Mark Thompson',
-      job: 'Director Creativo',
-      image: {
-        src: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80',
-        alt: 'Mark Thompson',
-      },
-    },
-    {
-      testimonial: `Su creatividad y enfoque práctico nos ayudaron a mejorar la planificación tributaria y fortalecer la identidad de nuestra empresa.`,
-      name: 'Emily Martínez',
-      job: 'CEO',
-      image: {
-        src: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=772&q=80',
-        alt: 'Emily Martínez',
-      },
-    },
-    {
-      testimonial: `Gracias a RLH ahora contamos con informes claros y una estrategia fiscal que nos permite crecer de forma segura y ordenada.`,
-      name: 'Laura Simón',
-      job: 'Fundadora de ONG',
-      image: {
-        src: 'https://images.unsplash.com/photo-1554727242-741c14fa561c?ixlib=rb-4.0.3&auto=format&fit=crop&w=774&q=80',
-        alt: 'Laura Simón',
-      },
-    },
-  ]}
-/>
+  <!-- 📞 Contact Section - Llamado a la acción destacado -->
+  <ContactForm
+    title="Contácta a Nuestro Equipo"
+    subtitle="Hablemos sobre tus necesidades contables y tributarias — estamos listos para ofrecerte soluciones personalizadas."
+  >
+    actions={
+      [
+        {
+          variant: 'primary',
+          text: 'Contáctanos por WhatsApp',
+          href: 'https://wa.me/TUNUMEROAQUI',
+          target: '_blank',
+          icon: 'tabler:brand-whatsapp',
+        },
+      ]
+    }
+  </ContactForm>
+  
+  <WhatsappButton />
 </Layout>

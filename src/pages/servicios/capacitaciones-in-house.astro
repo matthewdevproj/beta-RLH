@@ -1,39 +1,154 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-
 import Hero2 from '~/components/widgets/Hero2.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import Content from '~/components/widgets/Content.astro';
 
 const metadata = {
-  title: 'Subscription Landing Page Demo',
+  title: 'Capacitaciones In-House - Formación Especializada para Empresas | CRIS Consultoría',
+  description: 'Programas de capacitación personalizados para el desarrollo de competencias en áreas contables, fiscales y financieras en su organización.',
 };
+
+const trainingServices = [
+  {
+    title: 'NIIF para PYMES',
+    description: 'Capacitación en implementación de Normas Internacionales de Información Financiera.',
+    highlights: ['NIIF completas', 'Casos prácticos', 'Implementación gradual'],
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Normas Tributarias',
+    description: 'Actualización en reformas tributarias y obligaciones fiscales.',
+    highlights: ['Reformas tributarias', 'Obligaciones fiscales', 'Plazos y sanciones'],
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Contabilidad Gerencial',
+    description: 'Herramientas contables para la toma de decisiones estratégicas.',
+    highlights: ['Costos y presupuestos', 'Análisis financiero', 'Indicadores de gestión'],
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  },
+  {
+    title: 'Soft Skills Contables',
+    description: 'Desarrollo de habilidades blandas para equipos financieros.',
+    highlights: ['Comunicación efectiva', 'Trabajo en equipo', 'Liderazgo contable'],
+    image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+  }
+];
+
+const benefits = [
+  {
+    title: 'Personalización',
+    description: 'Contenidos adaptados a las necesidades específicas de su empresa.',
+    icon: 'tabler:settings',
+  },
+  {
+    title: 'Expertos Sectoriales',
+    description: 'Instructores con experiencia práctica en su industria.',
+    icon: 'tabler:user-star',
+  },
+  {
+    title: 'Flexibilidad Horaria',
+    description: 'Programación adaptada a la operación de su empresa.',
+    icon: 'tabler:clock',
+  },
+  {
+    title: 'Medición Resultados',
+    description: 'Evaluación del impacto de la capacitación en su organización.',
+    icon: 'tabler:chart-bar',
+  },
+];
 ---
 
 <Layout metadata={metadata}>
-  <!-- Hero2 Widget ******************* -->
-
+  <!-- Hero Section -->
   <Hero2
-    tagline="Áreas Contables"
-    title="Capacitaciones a la medida In-House"
-    subtitle="Ofrecemos capacitaciones in-house impartidas por especialistas de primer nivel, diseñadas a la medida de las necesidades de cada organización."
-    actions={[
-      { variant: 'primary', text: 'Ver Más', href: '#', icon: 'tabler:square-rounded-arrow-right' },
-    ]}
-    image={{
-      src: 'https://images.unsplash.com/photo-1593510987046-1f8fcfc512a0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      alt: 'Ironic image associated with canceling a subscription. Subscription Landing Page Demo',
-    }}
-  />
-
-  <CallToAction
-    title="Coming soon"
-    subtitle="We are working on the content of these demo pages. You will see them very soon. Stay tuned Stay tuned!"
+    tagline="Desarrollo de Talento"
+    title="Capacitaciones <span class='text-gray-800 dark:text-gray-200'>In-House</span>"
+    subtitle="Programas de formación personalizados para fortalecer las competencias de su equipo en áreas contables, fiscales y financieras. Entrenamiento en sus instalaciones."
     actions={[
       {
         variant: 'primary',
-        text: 'Download Template',
-        href: 'https://github.com/arthelokyo/astrowind',
-        icon: 'tabler:download',
+        text: 'Diseñar Programa',
+        href: '#servicios',
+        icon: 'tabler:arrow-down',
+      },
+    ]}
+    image={{
+      src: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+      alt: 'Capacitación empresarial in-house',
+    }}
+  />
+
+  <!-- Servicios Section -->
+  <CallToAction
+    id="servicios"
+    title="Programas de Capacitación Especializados"
+    subtitle="Formación adaptada a las necesidades específicas de su organización:"
+    services={trainingServices}
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Propuesta Personalizada',
+        href: '#contacto',
+        icon: 'tabler:user-star',
+      },
+      {
+        variant: 'secondary',
+        text: 'Catálogo Cursos',
+        href: '/cursos',
+        icon: 'tabler:book',
+      },
+    ]}
+  />
+
+  <!-- Beneficios Section -->
+  <Content
+    isAfterContent
+    isReversed
+    items={benefits}
+    image={{
+      src: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80',
+      alt: 'Sesión de capacitación empresarial',
+    }}
+  >
+    <Fragment slot="content">
+      <div class="space-y-6">
+        <h3 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+          Formación que Transforma
+        </h3>
+        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          Desarrollamos programas de capacitación específicos para su industria y desafíos únicos. 
+          Nuestros instructores combinan expertise técnico con experiencia práctica, 
+          garantizando que su equipo aplique inmediatamente lo aprendido.
+        </p>
+      </div>
+    </Fragment>
+  </Content>
+
+  <!-- Final CTA Section -->
+  <CallToAction
+    id="contacto"
+    title="¿Listo para Potenciar su Equipo?"
+    subtitle="Reciba una propuesta de capacitación personalizada sin compromiso."
+    actions={[
+      {
+        variant: 'secondary',
+        text: 'Propuesta Personalizada',
+        href: 'https://api.whatsapp.com/send/?phone=573001234567&text=Quiero+una+propuesta+de+capacitación+in-house&type=phone_number&app_absent=0',
+        icon: 'tabler:user-star',
+      },
+      {
+        variant: 'secondary',
+        text: 'Llamar Consultor',
+        href: 'tel:+573001234567',
+        icon: 'tabler:phone',
+      },
+      {
+        variant: 'secondary',
+        text: 'Ver Temarios',
+        href: '/temarios-cursos',
+        icon: 'tabler:list',
       },
     ]}
   />

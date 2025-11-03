@@ -1,22 +1,116 @@
+---
+// En la parte superior del archivo .astro
+const phoneNumber = '+51933167550';
+const message = 'Hola, me gustaría recibir más información sobre...';
+const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+---
 
+<!-- Botón de WhatsApp mejorado -->
 <a
-  href="https://wa.me/51933167550?text=Hola,%20estoy%20interesado%20en%20recibir%20más%20información%20sobre%20sus%20servicios.%20¿Podrían%20ayudarme?"
+  href={whatsappUrl}
   target="_blank"
   rel="noopener noreferrer"
-  class="fixed bottom-6 right-6 z-50 flex items-center justify-center
-         w-14 h-14 rounded-full bg-green-500 text-white shadow-lg
-         hover:bg-green-600 transition-colors duration-300"
-  aria-label="WhatsApp"
+  class="fixed bottom-6 right-6 z-50
+    flex items-center justify-center
+    w-16 h-16
+    bg-gradient-to-br from-green-500 to-green-600
+    hover:from-green-600 hover:to-green-700
+    rounded-full
+    shadow-2xl
+    transition-all duration-300
+    hover:scale-110
+    hover:shadow-green-500/50
+    group
+    animate-pulse-slow"
+  aria-label="Chat via WhatsApp"
 >
-  <!-- Ícono de WhatsApp (SVG) -->
+  <!-- Notificación bubble -->
+  <span
+    class="absolute -top-1 -right-1
+    w-6 h-6
+    bg-red-500
+    rounded-full
+    flex items-center justify-center
+    text-xs text-white font-bold
+    animate-bounce
+    shadow-lg"
+  >
+    1
+  </span>
+
+  <!-- Icono WhatsApp -->
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="w-8 h-8"
     fill="currentColor"
     viewBox="0 0 24 24"
+    class="w-8 h-8 text-white transition-transform group-hover:scale-110"
   >
     <path
-      d="M12 2C6.48 2 2 6.04 2 11.5c0 1.97.58 3.8 1.57 5.34L2 22l5.35-1.4A10.3 10.3 0 0012 21c5.52 0 10-4.04 10-9.5S17.52 2 12 2zm0 17.5c-1.8 0-3.46-.52-4.86-1.42l-.35-.21-3.17.83.85-3.09-.22-.36A8 8 0 1112 19.5zm4.31-5.3c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.63-1.2-1.41-1.34-1.65-.14-.24-.02-.36.1-.48.1-.1.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.28-.74-1.75-.2-.48-.4-.4-.54-.4-.14 0-.3-.02-.46-.02-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.68 2.56 4.08 3.58.57.25 1.01.4 1.36.51.57.18 1.08.15 1.48.09.46-.07 1.42-.58 1.62-1.14.2-.56.2-1.03.14-1.13-.06-.1-.22-.16-.46-.28z"
-    />
+      d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884"
+    ></path>
   </svg>
+
+  <!-- Tooltip -->
+  <div
+    class="absolute right-full mr-4
+    bg-gray-900 text-white
+    px-3 py-2
+    rounded-lg
+    text-sm font-medium
+    whitespace-nowrap
+    opacity-0
+    group-hover:opacity-100
+    transition-opacity duration-300
+    shadow-xl
+    pointer-events-none"
+  >
+    Contact us on WhatsApp!
+    <div
+      class="absolute top-1/2 -right-2
+      w-0 h-0
+      border-t-4 border-t-transparent
+      border-b-4 border-b-transparent
+      border-l-4 border-l-gray-900
+      -translate-y-1/2"
+    >
+    </div>
+  </div>
+
+  <!-- Efecto de pulso externo -->
+  <div class="absolute inset-0
+    rounded-full
+    border-2 border-green-400
+    animate-ping-slow
+    opacity-75"></div>
 </a>
+
+<style>
+  /* Animaciones personalizadas para Tailwind */
+  @keyframes pulse-slow {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes ping-slow {
+    75%,
+    100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-ping-slow {
+    animation: ping-slow 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+</style>
